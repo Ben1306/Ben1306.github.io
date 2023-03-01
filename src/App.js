@@ -1,15 +1,15 @@
 /** @jsxImportSource @emotion/react */
 import tw from 'twin.macro'
+import {StyleWrapper} from "./layouts/wrappers";
+import MainPage from "./pages/main-page/main";
 
-
-const Test = tw.div`text-3xl bg-blue-300`
 
 function App() {
 
   return (
-      <Test>
-        Hello World it works!
-      </Test>
+      <StyleWrapper>
+          <MainPage/>
+      </StyleWrapper>
   );
 }
 

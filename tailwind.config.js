@@ -19,6 +19,15 @@ module.exports = {
             black:'#000',
             white:'#fff',
 
+            primaryDark:'#1757C2',
+            secondaryLight: '#E8EEF9',
+
+            textGrayDark: "#444547",
+            textGrayMedium: "#6E6F70",
+            textGrayLight: "#B5B6BC",
+            //textBlack: "#141416",
+            textBlack: "#040F0F",
+            textLightBackground: "#F7F9FC",
 
             gray: {
                 "lightest": "#fff",
@@ -454,7 +463,7 @@ module.exports = {
         },
         fontFamily: {
             display: [
-                'Montserrat',
+                'Inter',
                 //'system-ui'
             ],
             /*
