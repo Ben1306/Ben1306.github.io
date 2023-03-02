@@ -1,16 +1,31 @@
 /** @jsxImportSource @emotion/react */
 import tw from 'twin.macro'
-import {Bars3BottomRightIcon, XMarkIcon, ArrowRightIcon} from "@heroicons/react/24/outline";
-import {useState} from "react";
+import {ChevronDownIcon, ArrowRightIcon} from "@heroicons/react/24/solid";
+import {useEffect, useState} from "react";
+import { motion } from "framer-motion"
 import {useNavigate} from "react-router-dom";
+import {hover} from "@testing-library/user-event/dist/hover";
 
-const TopHeaderContainer = tw.div`sticky top-0 z-1 text-center w-full text-sm bg-green-700`
+const TopHeaderContainer = tw.div`py-2 font-medium text-center w-full text-sm bg-primaryLight text-primaryDark`
 
-
-const HeaderStickyWrapper = tw.div`flex sticky top-0 z-10 font-bold text-3xl bg-blue-300 h-20`
+const HeaderStickyWrapper = tw.div`flex sticky top-0 z-10 font-bold text-3xl bg-transparent h-16 transition duration-300 border-solid border-b-white border-x-0 border-t-0`
 const HeaderContainer = tw.div`flex items-center max-w-screen-xl mx-auto w-full`
-const HeaderLogo = tw.div`flex items-center justify-center`
-const HeaderLinks = tw.div`ml-8 flex-1 flex`
+const HeaderLogo = tw.div`cursor-pointer flex items-center justify-center font-semibold text-xl hover:text-primaryDark transition duration-300`
+const HeaderLinks = tw.div`ml-8 flex-1 flex justify-end`
+const Link = tw.div`mx-1 text-base font-normal cursor-pointer flex justify-center p-2 rounded-md items-center bg-white text-textGrayMedium hover:text-textBlack hover:bg-textGrayBackground transition duration-300`
+
+const DropdownLink = tw(Link)`cursor-default inline relative whitespace-nowrap p-0`;
+const DropdownButton = tw.div`flex items-center p-2`
+const DropdownText = tw.div`mr-2`
+const DropdownSubMenuWrapper = tw.div`hidden absolute right-0 z-1 group-hover:block bg-transparent`
+const DropdownContent = tw.div`mt-4 p-2 rounded-md bg-white shadow-2xl`
+const DropdownList = tw.div`flex flex-col w-72`
+const DropdownItem = tw.div`flex items-center cursor-pointer p-4 text-textBlack rounded-md hover:bg-textGrayBackground`
+const DropdownItemIcon = tw.div`w-8 h-8 bg-secondaryDark mr-4`
+const DropdownItemTitle = tw.div`flex-1`
+
+const Contact = tw.div`flex mx-1 text-base font-normal cursor-pointer justify-center rounded-md items-center bg-primaryLight text-primaryDark hover:text-white hover:bg-primaryDark transition duration-300`
+const ContactText = tw.div``
 
 export function TopHeader({text}) {
     return(
@@ -21,14 +36,137 @@ export function TopHeader({text}) {
 }
 
 export default function Header() {
+
+    const [sticked, setSticked] = useState(false)
+
+    useEffect(
+        ()=>{
+            if (typeof window !== "undefined") {
+                window.addEventListener("scroll", () =>
+                    setSticked(window.scrollY > 36)
+                );
+            }
+        },
+        [setSticked]
+    )
+
+    const arrowRotation = {
+        rest: { rotate:0},
+        hover: {
+            rotate:180,
+            transition: {
+                duration: 0.2,
+                type: "tween",
+                ease: "easeIn"
+            }
+        }
+    };
+
+    const contactArrow = {
+        rest: { display:"hidden", width:0, translateX:-10, opacity:"0%", marginLeft:0},
+        hover: {
+            width:"16px",
+            marginLeft:8,
+            display:"flex",
+            translateX:0,
+            opacity:"100%",
+            transition: {
+                duration: 0.2,
+                type: "tween",
+                ease: "easeIn"
+            }
+        }
+    };
+
     return(
-        <HeaderStickyWrapper>
+        <HeaderStickyWrapper
+            css={sticked ? tw`bg-white border-textGrayBackground transition duration-300` : tw`bg-transparent`}
+        >
             <HeaderContainer>
                 <HeaderLogo>
-                    FLY-SEMI
+                    FlySemi
                 </HeaderLogo>
                 <HeaderLinks>
-                    BONSOIR LE HEADER QUOI
+                    <Link>
+                        Business Models
+                    </Link>
+                    <DropdownLink className="group">
+                        <motion.div
+                            initial="rest"
+                            whileHover="hover"
+                            animate="rest"
+                        >
+                            <DropdownButton>
+                                <DropdownText>
+                                    You are
+                                </DropdownText>
+                                <motion.div
+                                    style={{
+                                        width:"16px",
+                                        height:"16px",
+                                        display:'flex',
+                                        justifyContent:'center',
+                                        justifyItems:'center'
+                                    }}
+                                    variants={arrowRotation}
+                                >
+                                        <ChevronDownIcon/>
+                                </motion.div>
+                            </DropdownButton>
+                            <DropdownSubMenuWrapper>
+                                <DropdownContent>
+                                    <DropdownList>
+                                        <DropdownItem>
+                                            <DropdownItemIcon
+                                            style={{borderRadius:"50%"}}
+                                            >
+                                            </DropdownItemIcon>
+                                            <DropdownItemTitle>
+                                                Start-up IP Company
+                                            </DropdownItemTitle>
+                                        </DropdownItem>
+                                        <DropdownItem>
+                                            <DropdownItemIcon
+                                                style={{borderRadius:"50%"}}
+                                            >
+                                            </DropdownItemIcon>
+                                            <DropdownItemTitle>
+                                                Established IP company
+                                            </DropdownItemTitle>
+                                        </DropdownItem>
+                                    </DropdownList>
+                                </DropdownContent>
+                            </DropdownSubMenuWrapper>
+                        </motion.div>
+                    </DropdownLink>
+                    <Link>
+                        Discover Us
+                    </Link>
+                    <Contact>
+                        <motion.div
+                            style={{
+                                display:'flex',
+                                padding:'8px',
+                                justifyContent:'center',
+                                justifyItems:'center'
+                            }}
+                            whileHover="hover"
+                            initial="rest"
+                            animate="rest"
+                        >
+                            <ContactText>
+                                Contact
+                            </ContactText>
+                            <motion.div
+                                style={{
+                                    justifyContent:'center'
+                                }}
+                                variants={contactArrow}
+                            >
+                                <ArrowRightIcon/>
+                            </motion.div>
+                        </motion.div>
+                    </Contact>
                 </HeaderLinks>
             </HeaderContainer>
         </HeaderStickyWrapper>

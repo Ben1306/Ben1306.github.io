@@ -20,14 +20,22 @@ module.exports = {
             white:'#fff',
 
             primaryDark:'#1757C2',
-            secondaryLight: '#E8EEF9',
+            primaryLight: '#E8EEF9',
+
+            secondaryDark:'#f55c34',
+            secondaryLight:'#fff3ed',
 
             textGrayDark: "#444547",
             textGrayMedium: "#6E6F70",
             textGrayLight: "#B5B6BC",
+
             //textBlack: "#141416",
             textBlack: "#040F0F",
-            textLightBackground: "#F7F9FC",
+
+            textLightPrimaryBackground: "#F7F9FC",
+            textLightSecondaryBackground: "#fcf7f6",
+            textGrayBackground: "#f4f4f5",
+
 
             gray: {
                 "lightest": "#fff",
