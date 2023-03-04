@@ -4,8 +4,9 @@ import {HeroSubTitle, HeroTitle} from "../../layouts/headings";
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from "framer-motion"
 import {ArrowRightIcon} from "@heroicons/react/24/solid";
+import {Button} from "../../layouts/components";
 
-const HeroWrapper = tw.div`flex justify-center items-center py-32`;
+const HeroWrapper = tw.div`flex justify-center items-center`;
 const HeroContent = tw.div`flex flex-col max-w-screen-lg`
 const HeroBlackTitle = tw.div`text-textBlack mr-4`
 
@@ -13,9 +14,6 @@ const HeroButtonsContainer = tw.div`flex justify-center items-center`
 
 const LeftButtonContainer = tw.div`flex w-6/12 justify-end`
 const RightButtonContainer = tw.div`flex w-6/12 justify-start`
-const DiscoverButton = tw.div`mr-4 flex shadow-md text-lg font-medium cursor-pointer justify-center rounded-md items-center bg-secondaryLight text-secondaryDark hover:bg-secondaryDark hover:text-white transition duration-300`
-const ContactButton = tw.div`ml-4 flex shadow-md text-lg font-medium cursor-pointer justify-center rounded-md items-center bg-primaryLight text-primaryDark hover:bg-primaryDark hover:text-white transition duration-300`
-const ContactText = tw.div``
 
 export default function Hero() {
 
@@ -37,7 +35,7 @@ export default function Hero() {
 
 
     return(
-        <HeroWrapper>
+        <HeroWrapper style={{height:"90vh"}}>
             <HeroContent>
                 <HeroTitle>
                     <HeroBlackTitle>
@@ -50,7 +48,7 @@ export default function Hero() {
                             'Salesful',
                             4000, // Waits 1s
                             () => {
-                                console.log('Done typing!'); // Place optional callbacks anywhere in the array
+                                // Place optional callbacks anywhere in the array
                             }
                         ]}
                         wrapper="div"
@@ -62,65 +60,11 @@ export default function Hero() {
                     You want to grow your semiconductor IP business? FlySemi helps you achieve your targets
                 </HeroSubTitle>
                 <HeroButtonsContainer>
-                    <LeftButtonContainer>
-                    <DiscoverButton>
-                        <motion.div
-                            style={{
-                                display:'flex',
-                                paddingLeft:'14px',
-                                paddingRight:'14px',
-                                paddingTop:'16px',
-                                paddingBottom:'16px',
-                                justifyContent:'center',
-                                justifyItems:'center'
-                            }}
-                            whileHover="hover"
-                            initial="rest"
-                            animate="rest"
-                        >
-                            <ContactText>
-                                Discover our expertise
-                            </ContactText>
-                            <motion.div
-                                style={{
-                                    justifyContent:'center'
-                                }}
-                                variants={contactArrow}
-                            >
-                                <ArrowRightIcon/>
-                            </motion.div>
-                        </motion.div>
-                    </DiscoverButton>
+                    <LeftButtonContainer css={tw`mr-4`}>
+                        <Button text={"Discover our expertise"} color={'red'}/>
                     </LeftButtonContainer>
-                    <RightButtonContainer>
-                    <ContactButton>
-                        <motion.div
-                            style={{
-                                display:'flex',
-                                paddingLeft:'14px',
-                                paddingRight:'14px',
-                                paddingTop:'16px',
-                                paddingBottom:'16px',
-                                justifyContent:'center',
-                                justifyItems:'center'
-                            }}
-                            whileHover="hover"
-                            initial="rest"
-                            animate="rest"
-                        >
-                            <ContactText>
-                                Get in touch with our team
-                            </ContactText>
-                            <motion.div
-                                style={{
-                                    justifyContent:'center'
-                                }}
-                                variants={contactArrow}
-                            >
-                                <ArrowRightIcon/>
-                            </motion.div>
-                        </motion.div>
-                    </ContactButton>
+                    <RightButtonContainer css={tw`ml-4`}>
+                        <Button text={"Get in touch with our team"} color={'blue'}/>
                     </RightButtonContainer>
                 </HeroButtonsContainer>
             </HeroContent>

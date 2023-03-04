@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import tw from 'twin.macro'
-import {ChevronDownIcon, ArrowRightIcon} from "@heroicons/react/24/solid";
+
+import {ChevronDownIcon, ArrowRightIcon, BeakerIcon, BuildingOffice2Icon} from "@heroicons/react/24/solid";
 import {useEffect, useState} from "react";
-import { motion } from "framer-motion"
 import {useNavigate} from "react-router-dom";
-import {hover} from "@testing-library/user-event/dist/hover";
+import { motion } from "framer-motion"
 
 const TopHeaderContainer = tw.div`py-2 font-medium text-center w-full text-sm bg-primaryLight text-primaryDark`
 
@@ -21,10 +21,10 @@ const DropdownSubMenuWrapper = tw.div`hidden absolute right-0 z-1 group-hover:bl
 const DropdownContent = tw.div`mt-4 p-2 rounded-md bg-white shadow-2xl`
 const DropdownList = tw.div`flex flex-col w-72`
 const DropdownItem = tw.div`flex items-center cursor-pointer p-4 text-textBlack rounded-md hover:bg-textGrayBackground`
-const DropdownItemIcon = tw.div`w-8 h-8 bg-secondaryDark mr-4`
+const DropdownItemIcon = tw.div`flex justify-center items-center w-8 h-8 mr-4`
 const DropdownItemTitle = tw.div`flex-1`
 
-const Contact = tw.div`flex mx-1 text-base font-normal cursor-pointer justify-center rounded-md items-center bg-primaryLight text-primaryDark hover:text-white hover:bg-primaryDark transition duration-300`
+const Contact = tw.div`flex mx-1 text-base font-normal cursor-pointer justify-center rounded-md items-center bg-primaryDark text-white`
 const ContactText = tw.div``
 
 export function TopHeader({text}) {
@@ -38,6 +38,7 @@ export function TopHeader({text}) {
 export default function Header() {
 
     const [sticked, setSticked] = useState(false)
+    const navigate = useNavigate();
 
     useEffect(
         ()=>{
@@ -83,12 +84,20 @@ export default function Header() {
             css={sticked ? tw`bg-white border-textGrayBackground transition duration-300` : tw`bg-transparent`}
         >
             <HeaderContainer>
-                <HeaderLogo>
+                <HeaderLogo
+                    onClick={
+                        ()=> {navigate('/')}
+                    }
+                >
                     FlySemi
                 </HeaderLogo>
                 <HeaderLinks>
-                    <Link>
-                        Business Models
+                    <Link
+                        onClick={
+                            ()=> {navigate('/business-models')}
+                        }
+                    >
+                        Business models
                     </Link>
                     <DropdownLink className="group">
                         <motion.div
@@ -119,16 +128,28 @@ export default function Header() {
                                         <DropdownItem>
                                             <DropdownItemIcon
                                             style={{borderRadius:"50%"}}
+                                            css={tw`bg-primaryLight text-primaryDark`}
                                             >
+                                                <BeakerIcon
+                                                    style={{
+                                                        width:"12px",height:"12px"
+                                                    }}
+                                                />
                                             </DropdownItemIcon>
                                             <DropdownItemTitle>
-                                                Start-up IP Company
+                                                Startup IP Company
                                             </DropdownItemTitle>
                                         </DropdownItem>
                                         <DropdownItem>
                                             <DropdownItemIcon
                                                 style={{borderRadius:"50%"}}
+                                                css={tw`bg-secondaryLight text-secondaryDark`}
                                             >
+                                                <BuildingOffice2Icon
+                                                style={{
+                                                    width:"12px",height:"12px"
+                                                }}
+                                                />
                                             </DropdownItemIcon>
                                             <DropdownItemTitle>
                                                 Established IP company
@@ -139,8 +160,19 @@ export default function Header() {
                             </DropdownSubMenuWrapper>
                         </motion.div>
                     </DropdownLink>
-                    <Link>
-                        Discover Us
+                    <Link
+                        onClick={
+                            ()=> {navigate('/')}
+                        }
+                    >
+                        Track records
+                    </Link>
+                    <Link
+                        onClick={
+                            ()=> {navigate('/')}
+                        }
+                    >
+                        Discover us
                     </Link>
                     <Contact>
                         <motion.div
