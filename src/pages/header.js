@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 
 const TopHeaderContainer = tw.div`py-2 font-medium text-center w-full text-sm bg-primaryLight text-primaryDark`
 
-const HeaderStickyWrapper = tw.div`flex sticky top-0 z-10 font-bold text-3xl bg-transparent h-16 transition duration-300 border-solid border-b-white border-x-0 border-t-0`
+const HeaderStickyWrapper = tw.div`flex sticky top-0 z-80 font-bold text-3xl bg-transparent h-16 transition duration-300 border-solid border-b-white border-x-0 border-t-0`
 const HeaderContainer = tw.div`flex items-center max-w-screen-xl mx-auto w-full`
 const HeaderLogo = tw.div`cursor-pointer flex items-center justify-center font-semibold text-xl hover:text-primaryDark transition duration-300`
 const HeaderLinks = tw.div`ml-8 flex-1 flex justify-end`
@@ -17,7 +17,7 @@ const Link = tw.div`mx-1 text-base font-normal cursor-pointer flex justify-cente
 const DropdownLink = tw(Link)`cursor-default inline relative whitespace-nowrap p-0`;
 const DropdownButton = tw.div`flex items-center p-2`
 const DropdownText = tw.div`mr-2`
-const DropdownSubMenuWrapper = tw.div`hidden absolute right-0 z-1 group-hover:block bg-transparent`
+const DropdownSubMenuWrapper = tw.div`hidden absolute right-0 z-80 group-hover:block bg-transparent`
 const DropdownContent = tw.div`mt-4 p-2 rounded-md bg-white shadow-2xl`
 const DropdownList = tw.div`flex flex-col w-72`
 const DropdownItem = tw.div`flex items-center cursor-pointer p-4 text-textBlack rounded-md hover:bg-textGrayBackground`
@@ -162,7 +162,7 @@ export default function Header() {
                     </DropdownLink>
                     <Link
                         onClick={
-                            ()=> {navigate('/')}
+                            ()=> {navigate('/track-records')}
                         }
                     >
                         Track records

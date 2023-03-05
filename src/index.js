@@ -9,7 +9,8 @@ import {
 } from "react-router-dom";
 import {StyleWrapper} from "./layouts/wrappers";
 import BusinessModelPage from "./pages/business-models-page/main";
-import DiscoverUsPage from "./pages/discover-page/discover-us";
+import DiscoverUsPage from "./pages/discover-page/main";
+import TrackRecords from "./pages/track-records-page/main";
 
 
 const router = createBrowserRouter(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
             <Route path={"/"} element={<App/>}/>
             <Route path="/business-models" element={<BusinessModelPage/>}/>
             <Route path="/discover-us" element={<DiscoverUsPage/>}/>
+            <Route path="/track-records" element={<TrackRecords/>}/>
         </>
     )
 )
