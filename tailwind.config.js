@@ -333,6 +333,7 @@ module.exports = {
             '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
             inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
             none: 'none',
+            innerStrong: 'rgba(50, 50, 93, 0.15) 0px 30px 40px -12px inset, rgba(0, 0, 0, 0.2) 0px 18px 36px -18px inset;'
         },
         boxShadowColor: ({ theme }) => theme('colors'),
         caretColor: ({ theme }) => theme('colors'),
