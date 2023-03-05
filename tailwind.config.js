@@ -21,7 +21,7 @@ module.exports = {
 
             primaryDark:'#1757C2',
             primaryLight: '#E8EEF9',
-
+            colorrr: "rgba(64,56,128,0.6)",
             secondaryDark:'#f55c34',
             secondaryLight:'#fff3ed',
 

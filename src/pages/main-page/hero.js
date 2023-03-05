@@ -2,12 +2,10 @@
 import tw from 'twin.macro'
 import {HeroSubTitle, HeroTitle} from "../../layouts/headings";
 import { TypeAnimation } from 'react-type-animation';
-import { motion } from "framer-motion"
-import {ArrowRightIcon} from "@heroicons/react/24/solid";
 import {Button} from "../../layouts/components";
 
-const HeroWrapper = tw.div`flex justify-center items-center`;
-const HeroContent = tw.div`flex flex-col max-w-screen-lg`
+const HeroWrapper = tw.div`relative flex justify-center items-center bg-transparent`;
+const HeroContent = tw.div`flex flex-col max-w-screen-lg z-10`
 const HeroBlackTitle = tw.div`text-textBlack mr-4`
 
 const HeroButtonsContainer = tw.div`flex justify-center items-center`
@@ -16,23 +14,6 @@ const LeftButtonContainer = tw.div`flex w-6/12 justify-end`
 const RightButtonContainer = tw.div`flex w-6/12 justify-start`
 
 export default function Hero() {
-
-    const contactArrow = {
-        rest: { display:"hidden", width:0, translateX:-10, opacity:"0%", marginLeft:0},
-        hover: {
-            width:"24px",
-            marginLeft:8,
-            display:"flex",
-            translateX:0,
-            opacity:"100%",
-            transition: {
-                duration: 0.2,
-                type: "tween",
-                ease: "easeIn"
-            }
-        }
-    };
-
 
     return(
         <HeroWrapper style={{height:"90vh"}}>

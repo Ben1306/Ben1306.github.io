@@ -11,3 +11,5 @@ export const YouAreCardDescription = tw.div`flex-1 mb-8 text-textGrayMedium text
 
 export const BusinessPlans = tw.div`flex text-left text-textBlack text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-4`;
 export const BusinessPlansIntroduction = tw.div`flex justify-center text-center text-primaryDark lg:text-2xl font-normal`
+
+export const MapTitle = tw.div`flex text-left text-textBlack text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2`;

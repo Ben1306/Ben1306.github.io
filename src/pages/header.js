@@ -169,7 +169,7 @@ export default function Header() {
                     </Link>
                     <Link
                         onClick={
-                            ()=> {navigate('/')}
+                            ()=> {navigate('/discover-us')}
                         }
                     >
                         Discover us
