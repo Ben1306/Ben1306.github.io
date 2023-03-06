@@ -14,7 +14,7 @@ export const ColoredLine = ({ color,height }) => (
     />
 );
 
-const ContactButton = tw.div`flex shadow-md text-lg font-medium cursor-pointer justify-center rounded-md items-center transition duration-300`
+const ContactButton = tw.button`font-display p-0 flex border-0 shadow-md text-lg font-medium cursor-pointer justify-center rounded-md items-center transition duration-300`
 const ContactText = tw.div``
 
 export const Button = ({color, text, reverse}) => {

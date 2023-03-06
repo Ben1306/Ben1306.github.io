@@ -11,7 +11,7 @@ const FooterWrapper = tw.div`flex flex-col max-w-screen-lg mx-auto`
 const FooterColumnsContainer = tw.div`flex mb-4`
 
 const LogoColumn = tw.div`flex flex-col flex-grow-2`
-const FooterLogo = tw.div`mb-3 cursor-pointer flex items-center justify-start font-semibold text-xl hover:text-primaryDark transition duration-300`
+const FooterLogo = tw.div`mb-3 flex items-center justify-start font-semibold text-xl transition duration-300`
 const PostalAddress = tw.div`py-1 text-xs font-light text-textGrayMedium text-left`
 
 const LeftColumn = tw.div`flex flex-col flex-1`

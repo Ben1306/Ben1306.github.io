@@ -14,4 +14,4 @@ export const BusinessPlansIntroduction = tw.div`flex justify-center text-center 
 
 export const MapTitle = tw.div`flex text-left text-textBlack text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2`;
 
-export const RecordTitle = tw.div` z-20 flex self-center text-center text-xl sm:text-2xl md:text-3xl lg:text-6xl font-bold mb-8`;
+export const RecordTitle = tw.div` z-20 flex self-center text-center text-xl sm:text-2xl md:text-3xl lg:text-6xl font-bold mb-16`;

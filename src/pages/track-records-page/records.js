@@ -5,15 +5,15 @@ import {motion, useMotionValue, useTransform} from "framer-motion"
 import {useRef, useState} from "react";
 
 const Wrapper = tw.div`flex justify-center mx-auto mb-24`
-const ContentWrapper = tw.div`flex flex-col flex-1 max-w-screen-lg`
+const ContentWrapper = tw.div`flex flex-col flex-1 max-w-screen-xl`
 
-const RecordGrid = tw.div`grid grid-cols-3 mb-8`
 const RecordInnerContainer = tw.div`flex flex-col flex-1 px-8 pt-16 rounded-md`
+const RecordGrid = tw.div`grid grid-cols-3 mb-24 mx-12`
 
-const RecordContainer = tw.div`z-20 flex flex-col justify-center px-8 py-16 m-2 bg-white shadow-md rounded-md`
-const KeyContainer = tw.div`flex justify-center items-center mb-8`
-const KeySignature = tw.div`text-5xl font-semibold text-textBlack text-center my-4 `
-const ElementTitle = tw.div`flex-1 text-center text-base font-medium text-secondaryDark`
+const RecordContainer = tw.div`z-20 flex flex-col justify-center m-2 mb-6 overflow-hidden`
+const KeyContainer = tw.div`flex justify-center items-center mb-4`
+const KeySignature = tw.div`text-6xl font-black text-textBlack text-center my-4 `
+const ElementTitle = tw.div`flex-1 text-center text-base font-medium text-secondaryDark w-8/12 mx-auto`
 const ElementDescription = tw.div`text-center text-sm font-normal text-textGrayLight`
 
 function Record({title, elements, reverse}){
@@ -70,8 +70,8 @@ function Record({title, elements, reverse}){
                 marginBottom:"48px",
                 marginTop:"48px",
             }}
-            css={tw`shadow-innerStrong`}
             onMouseMove={e => handleMouseMove(e)}
+            className="group"
         >
             <RecordInnerContainer>
                 <motion.div
@@ -82,14 +82,14 @@ function Record({title, elements, reverse}){
                         borderRadius:"50%",
                         translateX:"-66%",
                         translateY:"-82%",
-                        backgroundColor: reverse ? "#f55c34" : "#1757C2"
+                        backgroundColor: reverse ? "#fff3ed" : "#E8EEF9"
                     }}
                     animate={{
                         x: mousePosition.x,
                         y: mousePosition.y
                     }}
                     transition={{ type: "spring", stiffness: 100 }}
-                    tw="shadow-2xl"
+                    tw="shadow-lg"
                 />
 
                 <RecordTitle
@@ -181,7 +181,7 @@ const elementsMarketing = [
     {
         signature:"x10",
         title:'Business growth achieve in 5 years following our Business Plan startegy',
-        description:'Sales turnover by sales person increased by >10x in less than 3 years'
+        description:''
     },
     {
         signature:"Partnering Companies",

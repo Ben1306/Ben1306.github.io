@@ -1,12 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import tw from 'twin.macro'
-import {Button} from "../../layouts/components";
 
 
 const Wrapper = tw.div`flex justify-center mx-auto my-24`
-const MottoWrapper = tw.div`flex rounded-md bg-secondaryLight p-8 flex-col justify-center items-center text-textBlack max-w-screen-lg w-full`
+const MottoWrapper = tw.div`flex rounded-md p-8 flex-col justify-center items-center text-textBlack max-w-screen-lg w-full`
 
-const MottoMessage = tw.div`text-5xl font-medium italic mt-8 mb-6 mr-2`
+const MottoMessage = tw.div`text-5xl font-medium mt-12 mb-12 mr-2`
 const MottoSubQuote = tw.div`w-8/12 text-center text-xl font-semibold text-secondaryDark mb-8`
 
 export default function Motto() {

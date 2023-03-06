@@ -11,6 +11,7 @@ import {StyleWrapper} from "./layouts/wrappers";
 import BusinessModelPage from "./pages/business-models-page/main";
 import DiscoverUsPage from "./pages/discover-page/main";
 import TrackRecords from "./pages/track-records-page/main";
+import Contact from "./pages/contact/main";
 
 
 const router = createBrowserRouter(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
             <Route path="/business-models" element={<BusinessModelPage/>}/>
             <Route path="/discover-us" element={<DiscoverUsPage/>}/>
             <Route path="/track-records" element={<TrackRecords/>}/>
+            <Route path="/contact-us" element={<Contact/>}/>
         </>
     )
 )

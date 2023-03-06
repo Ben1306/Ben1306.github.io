@@ -174,7 +174,11 @@ export default function Header() {
                     >
                         Discover us
                     </Link>
-                    <Contact>
+                    <Contact
+                        onClick={
+                            ()=> {navigate('/contact-us')}
+                        }
+                    >
                         <motion.div
                             style={{
                                 display:'flex',
