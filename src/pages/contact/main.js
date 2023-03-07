@@ -145,14 +145,14 @@ export default function Contact() {
                                 <FormInputField
                                     name={"fullName"}
                                     label={"Full Name"}
-                                    placeholder={"Ex: James Bond"}
+                                    placeholder={"James Bond"}
                                     errors={errors.fullName}
                                     touched={touched.fullName}
                                 />
                                 <FormInputField
                                     name={"email"}
                                     label={"Professional Email"}
-                                    placeholder={"Ex: benji.renoux@gmail.com"}
+                                    placeholder={"benji.renoux@gmail.com"}
                                     errors={errors.email}
                                     touched={touched.email}
                                 />
@@ -185,7 +185,7 @@ export default function Contact() {
                                 <FormInputField
                                     name={"companyName"}
                                     label={"Name of your company"}
-                                    placeholder={"Ex: Apple"}
+                                    placeholder={"Apple"}
                                     errors={errors.companyName}
                                     touched={touched.companyName}
                                 />

@@ -8,18 +8,18 @@ const Wrapper = tw.div`relative flex flex-col items-center mx-auto`
 const UpperChipContainer = tw.div`absolute top-0 w-full flex justify-center`
 const UpperChip = tw.div`text-center py-3 px-6 rounded-full bg-secondaryDark text-white text-lg font-semibold`
 
-const SectionWrapper = tw.div`flex justify-center pt-48 pb-48 w-full bg-gradient-to-r from-primaryLight to-secondaryLight`
+const SectionWrapper = tw.div`flex justify-center rounded-md pt-48 pb-48 w-full bg-gradient-to-r from-primaryLight to-secondaryLight`
 const ContentWrapper = tw.div`flex flex-col flex-1 max-w-screen-xl mx-12`
 
-const SubTitle = tw.div`text-textGrayMedium text-lg font-normal text-center mb-6`;
+const SubTitle = tw.div`text-textGrayMedium text-lg font-normal text-center mb-24`;
 
 
 const BusinessDevContainer = tw.div`flex justify-center relative w-10/12 mx-auto mb-4`
-const BusinessDevTitle = tw.div`z-10 flex mb-12 self-center text-textBlack bg-white items-center justify-center text-center rounded-full shadow-contact p-8 text-3xl font-bold`
+const BusinessDevTitle = tw.div`z-10 flex mb-12 self-center text-textBlack bg-white items-center justify-center text-center rounded-xl shadow-contact p-6 text-3xl font-bold`
 const Columns = tw.div`flex flex-1`
 
 const LeftColumn = tw.div`flex relative h-96 flex-col justify-start w-6/12 mr-8`
-const SubjectTitle = tw.div`text-center w-4/12 z-10 rounded-xl shadow-contact border-solid border-2 p-6 text-3xl font-bold`
+const SubjectTitle = tw.div`text-center w-4/12 z-10 rounded-xl shadow-contact p-6 text-3xl font-bold bg-white`
 const SubSubjects = tw.div`z-10 py-2 px-3 absolute shadow-2xl rounded-full border-solid border-2 text-lg font-medium`
 
 const RightColumn = tw.div`flex flex-col h-96 relative justify-start items-center w-6/12 ml-8`
@@ -170,7 +170,7 @@ function Subject({color, text, id, subBubbles}){
         <>
                 <SubjectTitle
                     id={id}
-                    css={color === 'blue' ? tw`border-primaryDark text-primaryDark bg-primaryLight self-end` : tw`self-start border-secondaryDark text-secondaryDark bg-secondaryLight`}
+                    css={color === 'blue' ? tw`text-primaryDark self-end` : tw`self-start text-secondaryDark`}
                 >
 
                     {text}
@@ -256,11 +256,9 @@ export default function WeCover() {
                     <SectionTitle
                         css={tw`self-center`}
                     >
-                        Our coverage
+                        Our fields of actions
                     </SectionTitle>
-                    <SubTitle
-                        css={tw`mb-24`}
-                    >
+                    <SubTitle>
                         Lorem ipsum dolore es dela jactae est. Par toutatis.
                     </SubTitle>
                     <BusinessDevContainer>

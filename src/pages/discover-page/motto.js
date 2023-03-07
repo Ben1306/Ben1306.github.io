@@ -5,8 +5,8 @@ import tw from 'twin.macro'
 const Wrapper = tw.div`flex justify-center mx-auto my-24`
 const MottoWrapper = tw.div`flex rounded-md px-8 flex-col justify-center items-center text-textBlack max-w-screen-lg w-full`
 
-const MottoMessage = tw.div`text-3xl font-semibold mb-12 mb-12 mr-2`
-const MottoSubQuote = tw.div`w-8/12 text-center text-xl font-semibold text-secondaryDark mb-8`
+const MottoMessage = tw.div`text-3xl font-semibold mb-24 mr-2`
+const MottoSubQuote = tw.div`w-8/12 text-center text-xl font-semibold text-secondaryDark`
 
 export default function Motto() {
     return (

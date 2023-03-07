@@ -4,7 +4,7 @@ import {SectionTitle} from "../../layouts/headings";
 import {Chip} from "../../layouts/components";
 
 const Wrapper = tw.div`flex justify-center mx-auto`
-const SectionWrapper = tw.div`flex justify-center py-24 my-12 w-full`
+const SectionWrapper = tw.div`flex justify-center py-24 my-12 w-full rounded-md`
 const ContentWrapper = tw.div`flex flex-1 max-w-screen-xl`
 
 const LeftColumn = tw.div`flex flex-col w-5/12`
