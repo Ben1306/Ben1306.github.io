@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import tw from 'twin.macro'
 import {RecordTitle} from "../../layouts/headings";
-import {motion, useMotionValue, useTransform} from "framer-motion"
+import {motion} from "framer-motion"
 import {useRef, useState} from "react";
 
 const Wrapper = tw.div`flex justify-center mx-auto mb-24`

@@ -9,6 +9,83 @@ import ContactBanner from "../main-page/contact-banner";
 import {HeroTitle} from "../../layouts/headings";
 import Motto from "./motto";
 import Map from "./map";
+import Our from "./our";
+import WeCover from "./coverage";
+
+
+const values = [
+    {
+        title:"Embrace reality",
+        content:"Face it and deal with it",
+    },
+    {
+        title:"Listen, be curious",
+        content:"Understand what is happening",
+    },
+    {
+        title:"Be forward thinking",
+        content:"Drive and achieve",
+    },
+    {
+        title:"Believe",
+        content:"With the will to find a way",
+    },
+    {
+        title:"Be creative",
+        content:"Think beyond the fence, strive to reach mutually valuable agreements",
+    },
+    {
+        title:"Be ambitious",
+        content:"Audacious and respectful",
+    },
+    {
+        title:"Share, explain",
+        content:"Act transparently",
+    },
+]
+
+const skills = [
+    {
+        title:"Understand high technology",
+        content:"Ability to handle sales but also business development",
+    },
+    {
+        title:"Project and need qualification",
+        content:"For a thorough assessment of sales potential",
+    },
+    {
+        title:"Negotiation",
+        content:"To increase business success rate ",
+    },
+    {
+        title:"Sales penetration",
+        content:"To maximize RoI",
+    },
+    {
+        title:"Sales management",
+        content:"To maximize success rate and optimize time to success",
+    },
+    {
+        title:"Value proposition articulation",
+        content:"To maximize sales return",
+    },
+    {
+        title:"Market segmentation and positioning",
+        content:"To identify your key targets",
+    },
+    {
+        title:"Business planification",
+        content:"",
+    },
+    {
+        title:"Partnership creation",
+        content:"",
+    },
+    {
+        title:"Communication",
+        content:"",
+    }
+]
 
 export default function DiscoverUsPage() {
     return(
@@ -20,7 +97,20 @@ export default function DiscoverUsPage() {
                     Discover our expertise
                 </HeroTitle>
                 <Motto/>
+                <WeCover/>
                 <Map/>
+                <Our
+                    title={"Our key values"}
+                    text={"There are important to us and are the bottom line of our work"}
+                    orientation={"left"}
+                    list={values}
+                />
+                <Our
+                    title={"Our skills"}
+                    text={"We developped this expertise through many years of working in the industry"}
+                    orientation={"right"}
+                    list={skills}
+                />
                 <Section
                     title={"We become an essential part of your team"}
                     text={"We believe in trust and operate in full transparency. We operate under your name, for your company. Our network of professionals “crusaders” share values that make them fully committed to help you succeed. If you trust your technology, if you have the ambition to lead your market and want to be reinforced or augmented in sales and/or marketing, we can help with our brains and hands to speed-up your Time-to-Success."}
