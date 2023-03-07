@@ -10,9 +10,9 @@ const ContentWrapper = tw.div`flex flex-col flex-1 max-w-screen-xl`
 const RecordInnerContainer = tw.div`flex flex-col flex-1 px-8 pt-16 rounded-md`
 const RecordGrid = tw.div`grid grid-cols-3 mb-24 mx-12`
 
-const RecordContainer = tw.div`z-20 flex flex-col justify-center m-2 mb-6 overflow-hidden`
+const RecordContainer = tw.div`z-20 flex flex-col justify-center m-2 mb-6`
 const KeyContainer = tw.div`flex justify-center items-center mb-4`
-const KeySignature = tw.div`text-6xl font-black text-textBlack text-center my-4 `
+const KeySignature = tw.div`text-6xl font-black text-textBlack text-center my-4`
 const ElementTitle = tw.div`flex-1 text-center text-base font-medium text-secondaryDark w-8/12 mx-auto`
 const ElementDescription = tw.div`text-center text-sm font-normal text-textGrayLight`
 
@@ -103,7 +103,15 @@ function Record({title, elements, reverse}){
                             <RecordContainer>
                                 <KeyContainer>
                                     <KeySignature>
-                                        {elem.signature}
+                                        <motion.div
+                                            whileHover={{scale:1.3}}
+                                            transition={{
+                                                type:"spring",
+                                                duration:0.3
+                                            }}
+                                        >
+                                            {elem.signature}
+                                        </motion.div>
                                     </KeySignature>
                                 </KeyContainer>
                                 <ElementTitle

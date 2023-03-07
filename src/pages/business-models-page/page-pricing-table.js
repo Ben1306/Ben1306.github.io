@@ -22,7 +22,7 @@ const GridLabelStyle = tw.div`h-10 py-3 px-3 flex items-center justify-start fon
 
 const GridSolutionContainer = tw.div`grid grid-cols-1`
 const GridSolutionLayout = tw.div`h-10 py-3 px-3 flex justify-center text-center items-center text-sm font-normal text-textGrayMedium`
-const GridSolutionIconContainer = tw.div`flex justify-center text-primaryDark text-center w-4 h-4`
+const GridSolutionIconContainer = tw.div`flex justify-center text-primaryDark text-center w-5 h-5`
 
 
 const GridAsterix = tw.div`flex text-left pl-2 italic text-base font-normal text-textGrayDark`

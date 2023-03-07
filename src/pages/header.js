@@ -10,7 +10,9 @@ const TopHeaderContainer = tw.div`py-2 font-medium text-center w-full text-sm bg
 
 const HeaderStickyWrapper = tw.div`flex sticky top-0 z-80 font-bold text-3xl bg-transparent h-16 transition duration-300 border-solid border-b-white border-x-0 border-t-0`
 const HeaderContainer = tw.div`flex items-center max-w-screen-xl mx-auto w-full`
-const HeaderLogo = tw.div`cursor-pointer flex items-center justify-center font-semibold text-xl hover:text-primaryDark transition duration-300`
+const HeaderLogo = tw.div`cursor-pointer flex items-center font-semibold text-xl hover:text-primaryDark transition duration-300`
+const LogoContainer = tw.div`w-8 h-8 flex justify-center items-center bg-secondaryDark mr-4`
+
 const HeaderLinks = tw.div`ml-8 flex-1 flex justify-end`
 const Link = tw.div`mx-1 text-base font-normal cursor-pointer flex justify-center p-2 rounded-md items-center bg-white text-textGrayMedium hover:text-textBlack hover:bg-textGrayBackground transition duration-300`
 
@@ -89,6 +91,11 @@ export default function Header() {
                         ()=> {navigate('/')}
                     }
                 >
+                    <LogoContainer
+                        style={{
+                            borderRadius:"50%"
+                        }}
+                    />
                     FlySemi
                 </HeaderLogo>
                 <HeaderLinks>
@@ -125,7 +132,13 @@ export default function Header() {
                             <DropdownSubMenuWrapper>
                                 <DropdownContent>
                                     <DropdownList>
-                                        <DropdownItem>
+                                        <DropdownItem
+                                            onClick={
+                                                ()=> {
+                                                    navigate('/startup')
+                                                }
+                                            }
+                                        >
                                             <DropdownItemIcon
                                             style={{borderRadius:"50%"}}
                                             css={tw`bg-primaryLight text-primaryDark`}
@@ -140,7 +153,13 @@ export default function Header() {
                                                 Startup IP Company
                                             </DropdownItemTitle>
                                         </DropdownItem>
-                                        <DropdownItem>
+                                        <DropdownItem
+                                            onClick={
+                                                ()=> {
+                                                    navigate('/')
+                                                }
+                                            }
+                                        >
                                             <DropdownItemIcon
                                                 style={{borderRadius:"50%"}}
                                                 css={tw`bg-secondaryLight text-secondaryDark`}

@@ -5,8 +5,8 @@ import {Chip} from "../../layouts/components";
 
 const SalesMarketingWrapper = tw.div`flex flex-col justify-center max-w-screen-lg mb-14`
 const TwoColContainer = tw.div`flex justify-center mb-24`
-const LeftColumn = tw.div`flex flex-col w-5/12 border-solid border-gray-300 shadow-md p-4 py-8 rounded-md mr-8 hover:shadow-xl hover:border-gray-200 transition duration-300`
-const RightColumn = tw.div`flex flex-col w-5/12 border-solid border-gray-300 shadow-md p-4 py-8 rounded-md ml-8 hover:shadow-xl hover:border-gray-200 transition duration-300`
+const LeftColumn = tw.div`flex flex-col w-5/12 border-solid border-gray-300 shadow-md p-8 rounded-md mr-8 hover:shadow-xl hover:border-gray-200 transition duration-300`
+const RightColumn = tw.div`flex flex-col w-5/12 border-solid border-gray-300 shadow-md p-8 rounded-md ml-8 hover:shadow-xl hover:border-gray-200 transition duration-300`
 const ChipContainer = tw.div`flex justify-center mb-4`
 
 

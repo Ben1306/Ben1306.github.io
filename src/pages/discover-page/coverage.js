@@ -4,14 +4,17 @@ import {SectionTitle} from "../../layouts/headings";
 import {motion} from "framer-motion"
 import Xarrow from "react-xarrows";
 
-const Wrapper = tw.div`flex justify-center mx-auto`
-const SectionWrapper = tw.div`flex justify-center pt-24 pb-32 my-12 w-full bg-gradient-to-r from-primaryLight to-secondaryLight`
+const Wrapper = tw.div`relative flex flex-col items-center mx-auto`
+const UpperChipContainer = tw.div`absolute top-0 w-full flex justify-center`
+const UpperChip = tw.div`text-center py-3 px-6 rounded-full bg-secondaryDark text-white text-lg font-semibold`
+
+const SectionWrapper = tw.div`flex justify-center pt-48 pb-48 w-full bg-gradient-to-r from-primaryLight to-secondaryLight`
 const ContentWrapper = tw.div`flex flex-col flex-1 max-w-screen-xl mx-12`
 
 const SubTitle = tw.div`text-textGrayMedium text-lg font-normal text-center mb-6`;
 
 
-const BusinessDevContainer = tw.div`flex justify-center relative w-10/12 mx-auto`
+const BusinessDevContainer = tw.div`flex justify-center relative w-10/12 mx-auto mb-4`
 const BusinessDevTitle = tw.div`z-10 flex mb-12 self-center text-textBlack bg-white items-center justify-center text-center rounded-full shadow-contact p-8 text-3xl font-bold`
 const Columns = tw.div`flex flex-1`
 
@@ -118,6 +121,7 @@ function BusinessDev({text}){
                     translate:"0 -100%",
                     left:0
                 }}
+
             >
                 Market Growth
             </SubSubjects>
@@ -174,6 +178,36 @@ function Subject({color, text, id, subBubbles}){
             {subBubbles.map((bubble,index)=>{
                 return(
                     <div key={index}>
+                        {/*
+                        <motion.div
+                            id={bubble.id}
+                            css={color === 'blue' ?
+                                tw`z-10 py-2 px-3 absolute shadow-2xl rounded-full border-solid border-2 text-lg font-medium border-primaryDark text-white bg-primaryDark`
+                                :
+                                tw`z-10 py-2 px-3 absolute shadow-2xl rounded-full border-solid border-2 text-lg font-medium border-secondaryDark text-white bg-secondaryDark`
+                            }
+                            style={{
+                                top:bubble.top,
+                                bottom:bubble.bottom,
+                                right:bubble.right,
+                                left:bubble.left,
+                            }}
+                            animate={{
+                                //translateX:[0, 2, 0, -2, 0],
+                                translateY:[0, 2,-2, 0],
+                            }}
+                            transition={{
+                                ease: "easeInOut",
+                                times: [0, 0.25, 0.75, 1],
+                                repeat: Infinity,
+                                duration: 2,
+                                delay:index
+                            }}
+
+                        >
+                            {bubble.text}
+                        </motion.div>
+                        */}
                             <SubSubjects
                                 id={bubble.id}
 
@@ -208,6 +242,15 @@ function Subject({color, text, id, subBubbles}){
 export default function WeCover() {
     return(
         <Wrapper>
+            <UpperChipContainer>
+                <UpperChip
+                    style={{
+                        translate:"0 -50%"
+                    }}
+                >
+                    Let us introduce you our scope of action and work philosophy
+                </UpperChip>
+            </UpperChipContainer>
             <SectionWrapper>
                 <ContentWrapper>
                     <SectionTitle
@@ -220,15 +263,6 @@ export default function WeCover() {
                     >
                         Lorem ipsum dolore es dela jactae est. Par toutatis.
                     </SubTitle>
-                    <motion.div
-                        css={tw`self-center w-20 rounded-full h-10 bg-primaryDark`}
-                        animate={{
-                            translateX:[0, 2, 4, 2, 0, -2, -4, -2, 0],
-                            translateY:[0, 2, 0, 2, 0, 2, 0, 2, 0],
-                        }}
-                        transition={{type:"s", repeat: Infinity, duration: 2 }}
-                    >
-                    </motion.div>
                     <BusinessDevContainer>
                         <BusinessDev
                             text={"Business Development"}

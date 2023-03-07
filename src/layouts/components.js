@@ -9,7 +9,9 @@ export const ColoredLine = ({ color,height }) => (
         style={{
             color: color,
             backgroundColor: color,
-            height: height
+            height: height,
+            width:"100%",
+            border:"none"
         }}
     />
 );

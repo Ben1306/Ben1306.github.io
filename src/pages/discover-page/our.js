@@ -43,6 +43,7 @@ export default function Our({text, title, orientation, list}) {
                             {list.map((item,index)=>{
                                 return(
                                     <motion.div
+                                        key={index}
                                         css={tw`flex first:mt-0 last:mb-0 flex my-4`}
                                         whileInView={{ opacity: 1 }}
                                         initial={{ opacity: 0 }}

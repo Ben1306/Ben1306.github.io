@@ -88,10 +88,10 @@ export default function Map() {
                     Lorem Ipsum dolore il faut remplir le contenu de ce petit paragraphe.
                 </DetailText>
                 <GridContainer>
-                    {elements.map((elem)=>{
+                    {elements.map((elem,index)=>{
 
                         return(
-                            <GridElement>
+                            <GridElement key={index}>
                                 <LeftLogoContainer
                                     style={{
                                         borderRadius:"50%",
