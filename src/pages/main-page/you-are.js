@@ -5,6 +5,7 @@ import {BeakerIcon, BuildingOffice2Icon} from "@heroicons/react/24/solid";
 
 import { motion } from "framer-motion"
 import {Button} from "../../layouts/components";
+import {useNavigate} from "react-router-dom";
 
 
 const Wrapper = tw.div`flex justify-center py-24 mx-auto`
@@ -16,7 +17,7 @@ const CardContainer = tw.div`flex flex-1 flex-col overflow-hidden items-center p
 
 const Circle = tw.div`relative flex justify-center text-center w-20 h-20`
 
-function Card({color,icon,title,description,button, reverse}) {
+function Card({link, color,icon,title,description,button,reverse}) {
 
     const circleVariants = {
         rest: {
@@ -70,6 +71,8 @@ function Card({color,icon,title,description,button, reverse}) {
         }
     };
 
+    const navigate = useNavigate()
+
     return(
         <motion.div
             style={{
@@ -81,6 +84,12 @@ function Card({color,icon,title,description,button, reverse}) {
             whileHover="hover"
             initial="rest"
             animate="rest"
+
+            onClick={
+                ()=>{
+                    navigate('/' + link)
+                }
+            }
         >
             <CardContainer className={"group"}>
                 <Circle>
@@ -133,6 +142,7 @@ function Card({color,icon,title,description,button, reverse}) {
 
 
 export default function YouAre() {
+
     return(
         <Wrapper>
             <ContentWrapper>
@@ -140,8 +150,8 @@ export default function YouAre() {
                     Who are you ?
                 </SectionTitle>
                 <CardsWrapper>
-                    <Card icon={<BeakerIcon/>} title={"Startup IP company"} description={'You have a bright idea, a promising technology, possibly first successes… and look for support to expand faster and deeper.'} button={'Learn More'} reverse={true} color={'blue'}/>
-                    <Card icon={<BuildingOffice2Icon/>} title={"Established IP company"} description={'Your company is operating for some years and you look for means or paths to grow/boost your business.'} button={'Learn More'} reverse={true} color={'red'}/>
+                    <Card link={'startup'} icon={<BeakerIcon/>} title={"Startup IP company"} description={'You have a bright idea, a promising technology, possibly first successes… and look for support to expand faster and deeper.'} button={'Learn More'} reverse={true} color={'blue'}/>
+                    <Card link={'startup'} icon={<BuildingOffice2Icon/>} title={"Established IP company"} description={'Your company is operating for some years and you look for means or paths to grow/boost your business.'} button={'Learn More'} reverse={true} color={'red'}/>
                 </CardsWrapper>
             </ContentWrapper>
         </Wrapper>

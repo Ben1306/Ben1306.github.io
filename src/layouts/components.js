@@ -3,10 +3,12 @@ import tw from 'twin.macro'
 
 import { motion } from "framer-motion"
 import {ArrowRightIcon} from "@heroicons/react/24/solid";
+import {useNavigate} from "react-router-dom";
 
 export const ColoredLine = ({ color,height }) => (
     <hr
         style={{
+            marginBottom:"0px",
             color: color,
             backgroundColor: color,
             height: height,
@@ -19,7 +21,9 @@ export const ColoredLine = ({ color,height }) => (
 const ContactButton = tw.button`font-display p-0 flex border-0 shadow-md text-lg font-medium cursor-pointer justify-center rounded-md items-center transition duration-300`
 const ContactText = tw.div``
 
-export const Button = ({color, text, reverse}) => {
+export const Button = ({color, text, reverse, url}) => {
+
+    const navigate = useNavigate()
 
     const buttonArrow = {
         rest: { display:"hidden", width:0, translateX:-10, opacity:"0%", marginLeft:0},
@@ -53,6 +57,14 @@ export const Button = ({color, text, reverse}) => {
                             tw`bg-secondaryLight text-secondaryDark hover:bg-secondaryDark hover:text-white`
                     )
             }
+            onClick={()=>{
+                if(url){
+                    navigate('/' + url)
+                }
+                else{
+                    navigate('/')
+                }
+            }}
         >
             <motion.div
                 style={{

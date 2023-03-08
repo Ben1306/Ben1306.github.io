@@ -103,15 +103,7 @@ function Record({title, elements, reverse}){
                             <RecordContainer>
                                 <KeyContainer>
                                     <KeySignature>
-                                        <motion.div
-                                            whileHover={{scale:1.3}}
-                                            transition={{
-                                                type:"spring",
-                                                duration:0.3
-                                            }}
-                                        >
                                             {elem.signature}
-                                        </motion.div>
                                     </KeySignature>
                                 </KeyContainer>
                                 <ElementTitle

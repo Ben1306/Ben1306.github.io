@@ -28,6 +28,7 @@ export default function MainPage() {
                             color={'blue'}
                             reverse={true}
                             text={"Choose one of our plan"}
+                            url={'business-models'}
                         />
                     }
                 />
@@ -43,6 +44,7 @@ export default function MainPage() {
                             color={'red'}
                             reverse={true}
                             text={"Learn more about our expertise"}
+                            url={'discover-us'}
                         />
                     }
 

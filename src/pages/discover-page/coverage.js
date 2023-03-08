@@ -20,18 +20,9 @@ const Columns = tw.div`flex flex-1`
 
 const LeftColumn = tw.div`flex relative h-96 flex-col justify-start w-6/12 mr-8`
 const SubjectTitle = tw.div`text-center w-4/12 z-10 rounded-xl shadow-contact p-6 text-3xl font-bold bg-white`
-const SubSubjects = tw.div`z-10 py-2 px-3 absolute shadow-2xl rounded-full border-solid border-2 text-lg font-medium`
+const SubSubjects = tw.div`z-10 py-2 px-3 absolute rounded-full border-solid border-2 text-lg font-medium`
 
 const RightColumn = tw.div`flex flex-col h-96 relative justify-start items-center w-6/12 ml-8`
-
-
-
-const ListContainer = tw.div`cursor-default w-8/12 flex flex-col`
-const NumberContainer = tw.div`flex items-start my-4 text-right mr-4 justify-center text-8xl font-semibold`
-const ListItem = tw.div`flex flex-1 flex-col my-4 rounded-md p-8`
-const ListItemTitle = tw.div`mb-4 text-left text-secondaryDark text-3xl font-semibold transition duration-300`
-
-const TextContainer = tw.div`text-textGrayMedium text-lg font-normal text-left mb-6`;
 
 
 const salesBubbles = [

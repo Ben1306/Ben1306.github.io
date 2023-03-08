@@ -42,10 +42,10 @@ export default function Hero() {
                 </HeroSubTitle>
                 <HeroButtonsContainer>
                     <LeftButtonContainer css={tw`mr-4`}>
-                        <Button text={"Discover our expertise"} color={'red'}/>
+                        <Button url={"discover-us"} text={"Discover our expertise"} color={'red'}/>
                     </LeftButtonContainer>
                     <RightButtonContainer css={tw`ml-4`}>
-                        <Button text={"Get in touch with our team"} color={'blue'}/>
+                        <Button url={"contact-us"} text={"Get in touch with our team"} color={'blue'}/>
                     </RightButtonContainer>
                 </HeroButtonsContainer>
             </HeroContent>

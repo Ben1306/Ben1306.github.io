@@ -3,7 +3,7 @@ import tw from 'twin.macro'
 import {ColoredLine} from "../../layouts/components";
 import {LinkIcon} from "@heroicons/react/24/solid";
 
-const Wrapper = tw.div`flex p-12 pb-24 relative rounded-md max-w-screen-xl bg-textLightPrimaryBackground mx-auto mt-12 mb-24`
+const Wrapper = tw.div`flex p-6 pb-24 relative rounded-md max-w-screen-xl bg-textLightPrimaryBackground mx-auto mt-6 mb-48`
 const LeftColumn = tw.div`flex flex-col w-8/12 pl-12 pt-12`
 const RightColumn = tw.div`flex justify-center items-center w-4/12`
 

@@ -7,18 +7,20 @@ import JsonMap from './map.json'
 import {MapTitle} from "../../layouts/headings";
 import {Button} from "../../layouts/components";
 
-const Wrapper = tw.div`flex justify-center mx-auto max-w-screen-xl my-24`
+const Wrapper = tw.div`flex justify-center mx-auto max-w-screen-xl mt-24 mb-48`
 
 const LeftCol = tw.div`flex flex-col w-6/12 ml-12`
-const DetailText = tw.div`text-lg font-semibold text-textGrayMedium text-left mb-8`
 
-const GridContainer = tw.div`grid grid-cols-2 mb-6`
-const GridElement = tw.div`flex items-center mr-4 mb-4`
-const LeftLogoContainer = tw.div`flex self-start justify-center items-center w-10 h-10 bg-secondaryLight mr-2`
-const LeftLogo = tw.div`flex justify-center items-center w-6 h-6 text-secondaryDark`
-const RightContainer = tw.div`flex flex-1 flex-col self-start`
-const ElementTitle = tw.div`font-semibold text-lg text-textBlack`
-const ElementDescription = tw.div`font-normal text-sm text-textGrayLight`
+const GridContainer = tw.div`grid grid-cols-2 mt-2 mb-6`
+const GridElement = tw.div`flex flex-col p-2 m-2 rounded-md`
+
+const TopContainer = tw.div`flex items-center mb-2`
+const ItemIconContainer = tw.div`rounded-md bg-secondaryLight p-2 flex justify-center items-center mr-4`
+const ItemIcon = tw.div`flex justify-center text-secondaryDark items-center w-6 h-6`
+
+const ItemTitle = tw.div`flex-1 flex text-lg font-medium text-textBlack`
+const ItemDescription = tw.div`text-left text-sm font-light text-textGrayLight`
+
 
 const ButtonContainer = tw.div`flex`
 
@@ -81,40 +83,37 @@ export default function Map() {
     return(
         <Wrapper>
             <LeftCol>
-                <MapTitle>
+                <MapTitle css={tw`mb-2`}>
                     Our pool of knowledge and market coverage
                 </MapTitle>
-                <DetailText>
-                    Lorem Ipsum dolore il faut remplir le contenu de ce petit paragraphe.
-                </DetailText>
                 <GridContainer>
                     {elements.map((elem,index)=>{
 
                         return(
                             <GridElement key={index}>
-                                <LeftLogoContainer
-                                    style={{
-                                        borderRadius:"50%",
-                                    }}
-                                >
-                                    <LeftLogo>
-                                        {elem.logo}
-                                    </LeftLogo>
-                                </LeftLogoContainer>
-                                <RightContainer>
-                                    <ElementTitle>
+                                <TopContainer>
+                                    <ItemIconContainer
+                                        style={{
+                                            borderRadius:"50%",
+                                        }}
+                                    >
+                                        <ItemIcon>
+                                            {elem.logo}
+                                        </ItemIcon>
+                                    </ItemIconContainer>
+                                    <ItemTitle>
                                         {elem.title}
-                                    </ElementTitle>
-                                    <ElementDescription>
-                                        {elem.description}
-                                    </ElementDescription>
-                                </RightContainer>
+                                    </ItemTitle>
+                                </TopContainer>
+                                <ItemDescription>
+                                    {elem.description}
+                                </ItemDescription>
                             </GridElement>
                         )
                     })}
                 </GridContainer>
                 <ButtonContainer>
-                    <Button text={'Contact us for more information'} color={'red'} reverse={false}/>
+                    <Button text={'Contact us for more information'} color={'red'} reverse={true}/>
                 </ButtonContainer>
             </LeftCol>
             <RightCol>

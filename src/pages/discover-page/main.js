@@ -11,6 +11,7 @@ import Motto from "./motto";
 import Map from "./map";
 import Our from "./our";
 import WeCover from "./coverage";
+import Tools from "./tools";
 
 
 const values = [
@@ -99,18 +100,7 @@ export default function DiscoverUsPage() {
                 <Motto/>
                 <WeCover/>
                 <Map/>
-                <Our
-                    title={"Our key values"}
-                    text={"There are important to us and are the bottom line of our work"}
-                    orientation={"left"}
-                    list={values}
-                />
-                <Our
-                    title={"Our skills"}
-                    text={"We developped this expertise through many years of working in the industry"}
-                    orientation={"right"}
-                    list={skills}
-                />
+                <Tools/>
                 <Section
                     title={"We become an essential part of your team"}
                     text={"We believe in trust and operate in full transparency. We operate under your name, for your company. Our network of professionals “crusaders” share values that make them fully committed to help you succeed. If you trust your technology, if you have the ambition to lead your market and want to be reinforced or augmented in sales and/or marketing, we can help with our brains and hands to speed-up your Time-to-Success."}
@@ -125,6 +115,12 @@ export default function DiscoverUsPage() {
                             text={"Choose one of our plan"}
                         />
                     }
+                />
+                <Our
+                    title={"Our key values"}
+                    text={"There are important to us and are the bottom line of our work"}
+                    orientation={"left"}
+                    list={values}
                 />
                 <Section
                     title={"You get access to proficient tools and methodologies"}
@@ -142,7 +138,12 @@ export default function DiscoverUsPage() {
                     }
 
                 />
-
+                <Our
+                    title={"Our skills"}
+                    text={"We developped this expertise through many years of working in the industry"}
+                    orientation={"right"}
+                    list={skills}
+                />
                 <ContactBanner/>
             </PageContentWrapper>
             <Footer/>

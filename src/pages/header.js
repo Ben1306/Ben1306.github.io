@@ -191,7 +191,7 @@ export default function Header() {
                             ()=> {navigate('/discover-us')}
                         }
                     >
-                        Discover us
+                        Expertise
                     </Link>
                     <Contact
                         onClick={
