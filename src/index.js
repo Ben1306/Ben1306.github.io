@@ -14,6 +14,7 @@ import Contact from "./pages/contact/main";
 import StartUp from "./pages/startup-page/main";
 import ScrollToTop from "./scroll-to-top";
 import NoPageMatching from "./pages/no-route-found";
+import EstablishedCompany from "./pages/company-page/main";
 
 
 const root = createRoot(document.getElementById("root"));
@@ -29,6 +30,7 @@ root.render(
                 <Route path="/track-records" element={<TrackRecords/>}/>
                 <Route path="/contact-us" element={<Contact/>}/>
                 <Route path="/startup" element={<StartUp/>}/>
+                <Route path="/established-company" element={<EstablishedCompany/>}/>
             </Routes>
         </StyleWrapper>
     </Router>

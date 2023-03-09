@@ -4,67 +4,67 @@ import Header, {TopHeader} from "../header";
 import {PageContentWrapper} from "../../layouts/wrappers";
 import Footer from "../footer";
 import ContactBanner from "../main-page/contact-banner";
-import StartUpHero from "./hero";
-import OurHelp from "./our-help";
+import StartUpHero from "../startup-page/hero";
+import OurHelp from "../startup-page/our-help";
 import {Button} from "../../layouts/components";
 import Section from "../main-page/section";
 
 
 const helpBlueElements = [
     {
-        title: "Identify and contact prospects",
+        title: "Lorem Ipsum",
         description:"Lorem ipsum dolore blablabla il faut une petite description je pense"
     },
     {
-        title: "Set customer expectation ",
+        title: "Lorem Ipsum",
         description:"Lorem ipsum dolore blablabla il faut une petite description je pense"
     },
     {
-        title: "Define/refine product positioning",
+        title: "Lorem Ipsum",
         description: "Lorem ipsum dolore blablabla il faut une petite description je pense"
     },
     {
-        title: "Going beyond the trust fence",
+        title: "Lorem Ipsum",
         description: "Lorem ipsum dolore blablabla il faut une petite description je pense"
     },
     {
-        title: "Value proposition articulation",
+        title: "Lorem Ipsum",
         description: "Lorem ipsum dolore blablabla il faut une petite description je pense"
     }
 ]
 
 const helpRedElements = [
     {
-        title: "Assess the real market potential",
+        title: "Lorem Ipsum",
         description: "Lorem ipsum dolore blablabla il faut une petite description je pense"
     },
     {
-        title: "Identify the roadblocks and the path forward",
+        title: "Lorem Ipsum",
         description: "Lorem ipsum dolore blablabla il faut une petite description je pense"
     },
     {
-        title: "Create awareness and appraisal",
+        title: "Lorem Ipsum",
         description: "Lorem ipsum dolore blablabla il faut une petite description je pense"
     },
     {
-        title: "Build pricing model that increase sales closure rate",
+        title: "Lorem Ipsum",
         description: "Lorem ipsum dolore blablabla il faut une petite description je pense"
     },
     {
-        title: "Sale and establish robust sales processes",
+        title: "Lorem Ipsum",
         description: "Lorem ipsum dolore blablabla il faut une petite description je pense"
     },
 ]
 
-export default function StartUp() {
+export default function EstablishedCompany() {
     return(
         <div>
             <TopHeader text={"Espace pour display un texte ou pour renvoyer vers un lien intéressant"}/>
             <Header/>
             <PageContentWrapper>
                 <StartUpHero
-                    title={"You have a bright idea, a promising technology, possibly first successes… and look for support to expand faster and deeper ?"}
-                    description={"If you already have a sales and marketing team, we are here to augment them for reaching new customers, new markets or new countries. If you do not have any, we can act as your trusted partner to put in place an effective sales and/or business development channel."}
+                    title={"Your company is operating for some years and you look for means or paths to grow/boost your business?"}
+                    description={"If you already have an in-house sales and marketing team, we are here to augment them for reaching new customers, new markets, new countries or for helping you introduce new products. If you operate through a distribution channel, we can expand your network of trusted partners."}
                     subcontainerText={"Depending on your needs, we either focus on sales or act as business developers"}
                     imgComponent={<p>Pretty Img Here</p>}
                 />
@@ -74,7 +74,9 @@ export default function StartUp() {
                 />
                 <Section
                     title={"Sales and business development focus"}
-                    text={"Our worldwide network of experts will promote your product(s) to qualified customers. They will support you during the sales steps to up to the agreement signature. We operate under your company name and share with you project and need qualifications. We align on a regular basis with your management on the progress of each deal and support your application engineers. We help potential customers appreciate your value proposition in their specific context and build quotes to extract the best and fair value out of each deal. We drive the business until the signature of the agreement."}
+                    text={"Our worldwide network of experts will promote your product(s) to qualified customers. They will support you during the sales steps to up to the agreement signature. \n" +
+                        "\n" +
+                        "We operate under your company name and share with you project and need qualifications. We align on a regular basis with your management on the progress of each deal and support your application engineers. We help your customer appreciate the value proposition in their specific context and build quotes to extract the best and fair value out of each deal. We drive the business until the signature of the agreement."}
                     chips={["Sales","Expertise"]}
                     orientation={"right"}
                     background={"true"}

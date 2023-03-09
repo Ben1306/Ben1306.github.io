@@ -19,12 +19,12 @@ const SubContainerSales = tw.div`py-3 px-4 bg-primaryDark rounded-md text-white 
 const SubContainerLogo = tw.div`flex justify-center items-center w-12 h-12 text-textBlack mx-4`
 const SubContainerMarketing = tw.div`py-3 px-4 bg-secondaryDark rounded-md text-white font-bold text-lg`
 
-export default function StartUpHero() {
+export default function StartUpHero({title, description, subcontainerText, imgComponent}) {
     return(
         <Wrapper>
             <LeftColumn>
                 <HeroTitle>
-                    You have a bright idea, a promising technology, possibly first successes… and look for support to expand faster and deeper ?
+                    {title}
                 </HeroTitle>
                 <LineContainer>
                     <ColoredLine
@@ -33,12 +33,11 @@ export default function StartUpHero() {
                     />
                 </LineContainer>
                 <SubTitle>
-                    If you already have a sales and marketing team, we are here to augment them for reaching new customers, new markets or new countries. If you do not have any, we can act as your trusted partner to put in place an effective sales and/or business development channel.
-                    combining sales and marketing skills.
+                    {description}
                 </SubTitle>
             </LeftColumn>
             <RightColumn>
-
+                {imgComponent}
             </RightColumn>
             <SubContainer
                 style={{
@@ -47,7 +46,7 @@ export default function StartUpHero() {
             >
                 <SubElement>
                     <SubContainerText>
-                        Depending on your needs, we either focus on sales or act as business developers
+                        {subcontainerText}
                     </SubContainerText>
                     <SubContainerSales>
                         Sales

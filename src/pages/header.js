@@ -156,7 +156,7 @@ export default function Header() {
                                         <DropdownItem
                                             onClick={
                                                 ()=> {
-                                                    navigate('/')
+                                                    navigate('/established-company')
                                                 }
                                             }
                                         >
