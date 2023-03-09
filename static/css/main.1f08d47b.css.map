@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.1f08d47b.css","mappings":"AAAA,OACI,uBAAwB,CAExB,eACJ,CAEA,mBACI,YACJ","sources":["pages/contact/style.css"],"sourcesContent":["select {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\nselect::-ms-expand {\n    display: none;\n}"],"names":[],"sourceRoot":""}
