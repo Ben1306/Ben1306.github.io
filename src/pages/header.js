@@ -5,23 +5,24 @@ import {ChevronDownIcon, ArrowRightIcon, BeakerIcon, BuildingOffice2Icon} from "
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { motion } from "framer-motion"
+import {IconComponentContainer} from "../layouts/components";
 
-const TopHeaderContainer = tw.div`py-2 font-medium text-center w-full text-sm bg-primaryLight text-primaryDark`
+const TopHeaderContainer = tw.div`py-2 font-normal text-center w-full text-sm bg-primaryLight text-primaryDark`
 
-const HeaderStickyWrapper = tw.div`flex sticky top-0 z-80 font-bold text-3xl bg-transparent h-16 transition duration-300 border-solid border-b-white border-x-0 border-t-0`
+const HeaderStickyWrapper = tw.div`flex sticky top-0 z-80 font-bold text-3xl bg-transparent h-16 transition duration-300 border-solid border-b-bgWhite border-x-0 border-t-0`
 const HeaderContainer = tw.div`flex items-center max-w-screen-xl mx-auto w-full`
 const HeaderLogo = tw.div`cursor-pointer flex items-center font-semibold text-xl hover:text-primaryDark transition duration-300`
 const LogoContainer = tw.div`w-8 h-8 flex justify-center items-center bg-secondaryDark mr-4`
 
 const HeaderLinks = tw.div`ml-8 flex-1 flex justify-end`
-const Link = tw.div`mx-1 text-base font-normal cursor-pointer flex justify-center p-2 rounded-md items-center bg-white text-textGrayMedium hover:text-textBlack hover:bg-textGrayBackground transition duration-300`
+const Link = tw.div`mx-1 text-base font-normal cursor-pointer flex justify-center p-2 rounded-md items-center bg-bgWhite text-textBlack hover:bg-textGrayBackground transition duration-300`
 
 const DropdownLink = tw(Link)`cursor-default inline relative whitespace-nowrap p-0`;
 const DropdownButton = tw.div`flex items-center p-2`
 const DropdownText = tw.div`mr-2`
 const DropdownSubMenuWrapper = tw.div`hidden absolute right-0 z-80 group-hover:block bg-transparent`
 const DropdownContent = tw.div`mt-4 p-2 rounded-md bg-white shadow-2xl`
-const DropdownList = tw.div`flex flex-col w-72`
+const DropdownList = tw.div`flex flex-col`
 const DropdownItem = tw.div`flex items-center cursor-pointer p-4 text-textBlack rounded-md hover:bg-textGrayBackground`
 const DropdownItemIcon = tw.div`flex justify-center items-center w-8 h-8 mr-4`
 const DropdownItemTitle = tw.div`flex-1`
@@ -143,11 +144,9 @@ export default function Header() {
                                             style={{borderRadius:"50%"}}
                                             css={tw`bg-primaryLight text-primaryDark`}
                                             >
-                                                <BeakerIcon
-                                                    style={{
-                                                        width:"12px",height:"12px"
-                                                    }}
-                                                />
+                                                <IconComponentContainer css={tw`w-4 h-4`}>
+                                                    <BeakerIcon/>
+                                                </IconComponentContainer>
                                             </DropdownItemIcon>
                                             <DropdownItemTitle>
                                                 Startup IP Company
@@ -164,11 +163,9 @@ export default function Header() {
                                                 style={{borderRadius:"50%"}}
                                                 css={tw`bg-secondaryLight text-secondaryDark`}
                                             >
-                                                <BuildingOffice2Icon
-                                                style={{
-                                                    width:"12px",height:"12px"
-                                                }}
-                                                />
+                                                <IconComponentContainer css={tw`w-4 h-4`}>
+                                                    <BuildingOffice2Icon/>
+                                                </IconComponentContainer>
                                             </DropdownItemIcon>
                                             <DropdownItemTitle>
                                                 Established IP company
@@ -186,13 +183,94 @@ export default function Header() {
                     >
                         Track records
                     </Link>
-                    <Link
-                        onClick={
-                            ()=> {navigate('/discover-us')}
-                        }
-                    >
-                        Expertise
-                    </Link>
+                    <DropdownLink className="group">
+                        <motion.div
+                            initial="rest"
+                            whileHover="hover"
+                            animate="rest"
+                        >
+                            <DropdownButton>
+                                <DropdownText>
+                                    Our expertise
+                                </DropdownText>
+                                <motion.div
+                                    style={{
+                                        width:"16px",
+                                        height:"16px",
+                                        display:'flex',
+                                        justifyContent:'center',
+                                        justifyItems:'center'
+                                    }}
+                                    variants={arrowRotation}
+                                >
+                                    <ChevronDownIcon/>
+                                </motion.div>
+                            </DropdownButton>
+                            <DropdownSubMenuWrapper>
+                                <DropdownContent>
+                                    <DropdownList>
+                                        <DropdownItem
+                                            onClick={
+                                                ()=> {
+                                                    navigate('/discover-us')
+                                                }
+                                            }
+                                        >
+                                            <DropdownItemIcon
+                                                style={{borderRadius:"50%"}}
+                                                css={tw`bg-primaryLight text-primaryDark`}
+                                            >
+                                                <IconComponentContainer css={tw`w-4 h-4`}>
+                                                    <BeakerIcon/>
+                                                </IconComponentContainer>
+                                            </DropdownItemIcon>
+                                            <DropdownItemTitle>
+                                                Our values and skills
+                                            </DropdownItemTitle>
+                                        </DropdownItem>
+                                        <DropdownItem
+                                            onClick={
+                                                ()=> {
+                                                    navigate('/discover-us')
+                                                }
+                                            }
+                                        >
+                                            <DropdownItemIcon
+                                                style={{borderRadius:"50%"}}
+                                                css={tw`bg-secondaryLight text-secondaryDark`}
+                                            >
+                                                <IconComponentContainer css={tw`w-4 h-4`}>
+                                                    <BuildingOffice2Icon/>
+                                                </IconComponentContainer>
+                                            </DropdownItemIcon>
+                                            <DropdownItemTitle>
+                                                Our approach and business tools
+                                            </DropdownItemTitle>
+                                        </DropdownItem>
+                                        <DropdownItem
+                                            onClick={
+                                                ()=> {
+                                                    navigate('/discover-us')
+                                                }
+                                            }
+                                        >
+                                            <DropdownItemIcon
+                                                style={{borderRadius:"50%"}}
+                                                css={tw`bg-secondaryLight text-secondaryDark`}
+                                            >
+                                                <IconComponentContainer css={tw`w-4 h-4`}>
+                                                    <BuildingOffice2Icon/>
+                                                </IconComponentContainer>
+                                            </DropdownItemIcon>
+                                            <DropdownItemTitle>
+                                                Our track records
+                                            </DropdownItemTitle>
+                                        </DropdownItem>
+                                    </DropdownList>
+                                </DropdownContent>
+                            </DropdownSubMenuWrapper>
+                        </motion.div>
+                    </DropdownLink>
                     <Contact
                         onClick={
                             ()=> {navigate('/contact-us')}

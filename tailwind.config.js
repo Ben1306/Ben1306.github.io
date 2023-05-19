@@ -17,20 +17,31 @@ module.exports = {
             transparent: 'transparent',
 
             black:'#000',
-            white:'#fff',
+            //textBlack: "#141416",
+            textBlack: "#040F0F",           //Apple text black
 
-            primaryDark:'#1757C2',
+            blocGrayBG: "#FAFAFA",
+
+
+            white:'#fff',
+            bgWhite: "#fbfbfd",             //Apple false white
+
+            //primaryDark:'#1757C2',
+            //primaryDark:'#0071E3',        //Apple blue bg
+            primaryDark:"#0066CC",          //Apple blue text on false white
+
             primaryLight: '#E8EEF9',
-            colorrr: "rgba(64,56,128,0.6)",
-            secondaryDark:'#f55c34',
+            //colorrr: "rgba(64,56,128,0.6)",
+
+
+            //secondaryDark:'#f55c34',
+            secondaryDark:'#f56300',  //Apple orange/red text
+
             secondaryLight:'#fff3ed',
 
             textGrayDark: "#444547",
             textGrayMedium: "#6E6F70",
             textGrayLight: "#B5B6BC",
-
-            //textBlack: "#141416",
-            textBlack: "#040F0F",
 
             textLightPrimaryBackground: "#F7F9FC",
             textLightSecondaryBackground: "#fcf7f6",

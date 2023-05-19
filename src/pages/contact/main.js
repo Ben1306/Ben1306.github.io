@@ -25,7 +25,7 @@ const ErrorMessage = tw.div`mt-1 text-secondaryDark text-sm font-medium`
 
 const ButtonContainer = tw.div`flex ml-2 mt-8 items-center`
 
-const CallContainer = tw.div`flex mt-4 mx-2 items-center justify-start text-textGrayLight`
+const CallContainer = tw.div`flex mt-4 mx-2 items-center justify-start text-textBlack`
 const CallLogoContainer = tw.div`w-4 h-4 mr-2 flex items-center justify-center`
 const CallTextContainer = tw.div`text-base font-normal`
 
@@ -179,8 +179,8 @@ export default function Contact() {
                                     }
                                     label={"I am"}
                                     defaultValue={"Select a post"}
-                                    errors={errors.phone}
-                                    touched={touched.phone}
+                                    errors={errors.job}
+                                    touched={touched.job}
                                 />
                                 <FormInputField
                                     name={"companyName"}

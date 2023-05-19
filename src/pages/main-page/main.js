@@ -8,6 +8,7 @@ import YouAre from "./you-are";
 import {Button} from "../../layouts/components";
 import Footer from "../footer";
 import ContactBanner from "./contact-banner";
+import Blocs from "./blocs";
 
 export default function MainPage() {
     return(
@@ -16,6 +17,7 @@ export default function MainPage() {
             <Header/>
             <PageContentWrapper>
                 <Hero/>
+                <Blocs/>
                 <Section
                     title={"Boost your Business"}
                     text={"We believe that any innovation must be supported by real marketing and sales work carried out by passionate professionals who have the will to succeed, which in turn gives the product its best chance to find its way to success."}

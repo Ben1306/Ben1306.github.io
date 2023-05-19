@@ -2,10 +2,11 @@
 import tw from 'twin.macro'
 import {HeroSubTitle, HeroTitle} from "../../layouts/headings";
 import { TypeAnimation } from 'react-type-animation';
-import {Button} from "../../layouts/components";
+import {Button, ButtonLink} from "../../layouts/components";
+import Papillon from "../../images/papillon.png"
 
 const HeroWrapper = tw.div`relative flex justify-center items-center bg-transparent`;
-const HeroContent = tw.div`flex flex-col max-w-screen-lg z-10`
+const HeroContent = tw.div`flex flex-col max-w-screen-lg z-10 pt-24`
 const HeroBlackTitle = tw.div`text-textBlack mr-4`
 
 const HeroButtonsContainer = tw.div`flex justify-center items-center`
@@ -16,8 +17,22 @@ const RightButtonContainer = tw.div`flex w-6/12 justify-start`
 export default function Hero() {
 
     return(
-        <HeroWrapper style={{height:"90vh"}}>
-            <HeroContent>
+        <HeroWrapper
+            //style={{height:"90vh"}}
+            style={{
+                backgroundImage:`url(${Papillon})`,
+                backgroundRepeat:"no-repeat",
+                backgroundPositionX:"center",
+                backgroundPositionY:"bottom",
+                backgroundSize:"600px 338px",
+                //backgroundSize:`${window.innerWidth}px`,
+            }}
+        >
+            <HeroContent
+                style={{
+                    paddingBottom:"360px"
+                }}
+            >
                 <HeroTitle>
                     <HeroBlackTitle>
                         Choose to become
@@ -38,14 +53,16 @@ export default function Hero() {
                     />
                 </HeroTitle>
                 <HeroSubTitle>
-                    You want to grow your semiconductor IP business? FlySemi helps you achieve your targets
+                    {"FlySemi makes you achieve your targets."}
                 </HeroSubTitle>
-                <HeroButtonsContainer>
-                    <LeftButtonContainer css={tw`mr-4`}>
-                        <Button url={"discover-us"} text={"Discover our expertise"} color={'red'}/>
+                <HeroButtonsContainer css={tw`text-xl`}>
+                    <LeftButtonContainer css={tw`mr-6`}>
+                        {/*<Button url={"discover-us"} text={"Discover our expertise"} color={'red'}/>*/}
+                        <ButtonLink url={"discover-us"} text={"Discover"} color={'blue'}/>
                     </LeftButtonContainer>
-                    <RightButtonContainer css={tw`ml-4`}>
-                        <Button url={"contact-us"} text={"Get in touch with our team"} color={'blue'}/>
+                    <RightButtonContainer css={tw`ml-6`}>
+                        {/*<Button url={"contact-us"} text={"Get in touch with our team"} color={'blue'}/>*/}
+                        <ButtonLink url={"contact-us"} text={"Contact us"} color={'blue'}/>
                     </RightButtonContainer>
                 </HeroButtonsContainer>
             </HeroContent>

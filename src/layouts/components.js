@@ -2,7 +2,7 @@
 import tw from 'twin.macro'
 
 import { motion } from "framer-motion"
-import {ArrowRightIcon} from "@heroicons/react/24/solid";
+import {ArrowRightIcon, ChevronRightIcon} from "@heroicons/react/24/solid";
 import {useNavigate} from "react-router-dom";
 
 export const ColoredLine = ({ color,height }) => (
@@ -106,5 +106,65 @@ export function Chip({color, text}) {
         >
             {text}
         </TopHeaderChip>
+    )
+}
+
+export const IconComponentContainer = tw.div`flex justify-center items-center`
+
+
+const Link = tw.div`text-lg group-hover:underline mr-1`
+const Container = tw.div`flex flex-row items-center cursor-pointer`
+
+export function ButtonLink({color,text, url}){
+
+    const navigate = useNavigate()
+
+    return(
+        <Container className={"group"}>
+            <Link
+                css={
+                    color === 'blue' ?
+                    tw`text-primaryDark` :
+                    tw`text-secondaryDark`
+                }
+
+                onClick={()=>{
+                    if(url){
+                        navigate('/' + url)
+                    }
+                    else{
+                        navigate('/')
+                    }
+                }}
+            >
+                {text}
+            </Link>
+            <IconComponentContainer
+                css={
+                    color === 'blue' ?
+                        tw`text-primaryDark` :
+                        tw`text-secondaryDark`
+                }
+
+                tw="h-4 w-4"
+            >
+                <ChevronRightIcon/>
+            </IconComponentContainer>
+        </Container>
+    )
+}
+
+const Span = tw.span``
+
+export function SpanComponent({color, padding, text}){
+    return(
+        <Span
+            style={{
+                backgroundColor:color,
+                padding: padding
+            }}
+        >
+            {text}
+        </Span>
     )
 }
