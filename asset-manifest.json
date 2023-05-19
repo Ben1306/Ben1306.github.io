@@ -1,14 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.1f08d47b.css",
-    "main.js": "/static/js/main.c1c56432.js",
+    "main.js": "/static/js/main.edcb771d.js",
+    "static/media/papillon.png": "/static/media/papillon.fb09c8df05fc5106d7f4.png",
+    "static/media/pissenlit.jpg": "/static/media/pissenlit.b752cd0fce7faa5340a3.jpg",
     "static/media/404-not-found.jpg": "/static/media/404-not-found.38da77fa310c806b1db8.jpg",
     "index.html": "/index.html",
     "main.1f08d47b.css.map": "/static/css/main.1f08d47b.css.map",
-    "main.c1c56432.js.map": "/static/js/main.c1c56432.js.map"
+    "main.edcb771d.js.map": "/static/js/main.edcb771d.js.map"
   },
   "entrypoints": [
     "static/css/main.1f08d47b.css",
-    "static/js/main.c1c56432.js"
+    "static/js/main.edcb771d.js"
   ]
 }
