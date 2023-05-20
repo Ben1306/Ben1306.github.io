@@ -4,7 +4,7 @@ import {Button, ButtonLink} from "../../layouts/components";
 
 
 const Wrapper = tw.div`flex justify-center mx-auto`
-const BannerWrapper = tw.div`flex flex-col justify-center text-center p-16 my-16 text-white shadow-inner bg-black max-w-screen-2xl mx-8`
+const BannerWrapper = tw.div`flex flex-col justify-center text-center p-16 my-16 text-white shadow-inner bg-black max-w-screen-2xl`
 
 const BannerTopHeader = tw.div`text-xl font-normal mb-4`
 const BannerHeader = tw.div`text-3xl font-medium mb-8 mx-auto w-10/12`

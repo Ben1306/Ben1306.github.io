@@ -23,14 +23,14 @@ root.render(
         <StyleWrapper>
             <ScrollToTop />
             <Routes>
-                <Route path={'*'} element={<NoPageMatching/>}/>
-                <Route path={"/"} element={<App/>}/>
-                <Route path="/business-models" element={<BusinessModelPage/>}/>
-                <Route path="/discover-us" element={<DiscoverUsPage/>}/>
-                <Route path="/track-records" element={<TrackRecords/>}/>
-                <Route path="/contact-us" element={<Contact/>}/>
-                <Route path="/startup" element={<StartUp/>}/>
-                <Route path="/established-company" element={<EstablishedCompany/>}/>
+                <Route key={"0"} path={'*'} element={<NoPageMatching/>}/>
+                <Route key={"1"} path={"/"} element={<App/>}/>
+                <Route key={"2"} path="/business-models" element={<BusinessModelPage/>}/>
+                <Route key={"3"} path="/discover-us" element={<DiscoverUsPage/>}/>
+                <Route key={"4"} path="/track-records" element={<TrackRecords/>}/>
+                <Route key={"5"} path="/contact-us" element={<Contact/>}/>
+                <Route key={"6"} path="/startup" element={<StartUp/>}/>
+                <Route key={"7"} path="/established-company" element={<EstablishedCompany/>}/>
             </Routes>
         </StyleWrapper>
     </Router>

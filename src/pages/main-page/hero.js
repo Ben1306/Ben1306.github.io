@@ -51,6 +51,9 @@ export default function Hero() {
                         cursor={false}
                         repeat={Infinity}
                     />
+                    <HeroBlackTitle>
+                        .
+                    </HeroBlackTitle>
                 </HeroTitle>
                 <HeroSubTitle>
                     {"FlySemi makes you achieve your targets."}

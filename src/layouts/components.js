@@ -112,7 +112,7 @@ export function Chip({color, text}) {
 export const IconComponentContainer = tw.div`flex justify-center items-center`
 
 
-const Link = tw.div`text-lg group-hover:underline mr-1`
+const Link = tw.div`group-hover:underline mr-1`
 const Container = tw.div`flex flex-row items-center cursor-pointer`
 
 export function ButtonLink({color,text, url}){
@@ -122,11 +122,11 @@ export function ButtonLink({color,text, url}){
     return(
         <Container className={"group"}>
             <Link
-                css={
-                    color === 'blue' ?
-                    tw`text-primaryDark` :
-                    tw`text-secondaryDark`
-                }
+                css={[
+                    color === 'blue' && tw`text-primaryDark`,
+                    color === 'red' && tw`text-secondaryDark`,
+                    color === 'white' && tw`text-white`,
+                ]}
 
                 onClick={()=>{
                     if(url){
@@ -140,11 +140,11 @@ export function ButtonLink({color,text, url}){
                 {text}
             </Link>
             <IconComponentContainer
-                css={
-                    color === 'blue' ?
-                        tw`text-primaryDark` :
-                        tw`text-secondaryDark`
-                }
+                css={[
+                    color === 'blue' && tw`text-primaryDark`,
+                    color === 'red' && tw`text-secondaryDark`,
+                    color === 'white' && tw`text-white`,
+                ]}
 
                 tw="h-4 w-4"
             >
@@ -156,12 +156,15 @@ export function ButtonLink({color,text, url}){
 
 const Span = tw.span``
 
-export function SpanComponent({color, padding, text}){
+export function SpanComponent({color, paddingX, paddingY, text}){
     return(
         <Span
             style={{
                 backgroundColor:color,
-                padding: padding
+                paddingLeft: paddingX,
+                paddingRight:paddingX,
+                paddingTop: paddingY,
+                paddingBottom:paddingY,
             }}
         >
             {text}

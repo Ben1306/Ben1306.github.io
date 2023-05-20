@@ -5,9 +5,9 @@ import {ChevronDownIcon, ArrowRightIcon, BeakerIcon, BuildingOffice2Icon} from "
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { motion } from "framer-motion"
-import {IconComponentContainer} from "../layouts/components";
+import {ButtonLink, IconComponentContainer} from "../layouts/components";
 
-const TopHeaderContainer = tw.div`py-2 font-normal text-center w-full text-sm bg-primaryLight text-primaryDark`
+const TopHeaderContainer = tw.div`flex flex-row justify-center py-2 font-normal text-center w-full text-sm bg-primaryLight text-primaryDark`
 
 const HeaderStickyWrapper = tw.div`flex sticky top-0 z-80 font-bold text-3xl bg-transparent h-16 transition duration-300 border-solid border-b-bgWhite border-x-0 border-t-0`
 const HeaderContainer = tw.div`flex items-center max-w-screen-xl mx-auto w-full`
@@ -15,7 +15,7 @@ const HeaderLogo = tw.div`cursor-pointer flex items-center font-semibold text-xl
 const LogoContainer = tw.div`w-8 h-8 flex justify-center items-center bg-secondaryDark mr-4`
 
 const HeaderLinks = tw.div`ml-8 flex-1 flex justify-end`
-const Link = tw.div`mx-1 text-base font-normal cursor-pointer flex justify-center p-2 rounded-md items-center bg-bgWhite text-textBlack hover:bg-textGrayBackground transition duration-300`
+const Link = tw.div`mx-1 text-base font-normal cursor-pointer flex justify-center p-2 rounded-md items-center bg-white text-textBlack hover:bg-textGrayBackground transition duration-300`
 
 const DropdownLink = tw(Link)`cursor-default inline relative whitespace-nowrap p-0`;
 const DropdownButton = tw.div`flex items-center p-2`
@@ -30,10 +30,17 @@ const DropdownItemTitle = tw.div`flex-1`
 const Contact = tw.div`flex mx-1 text-base font-normal cursor-pointer justify-center rounded-md items-center bg-primaryDark text-white`
 const ContactText = tw.div``
 
-export function TopHeader({text}) {
+export function TopHeader({text, url}) {
     return(
         <TopHeaderContainer>
-            {text}
+            <div css={url && tw`mr-2`}>{text}</div>
+            {url &&
+                <ButtonLink
+                    color={'blue'}
+                    url={url}
+                    text={'Learn more'}
+                />
+            }
         </TopHeaderContainer>
     )
 }

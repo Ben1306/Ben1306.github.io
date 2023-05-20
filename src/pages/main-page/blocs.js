@@ -3,9 +3,10 @@ import tw from 'twin.macro'
 
 import {BeakerIcon, BuildingOffice2Icon} from "@heroicons/react/24/solid";
 import BlackBanner from "../../images/pissenlit.jpg"
+import SalesMarketingImg from "../../images/sales-and-marketing.jpg"
 import {ButtonLink, SpanComponent} from "../../layouts/components";
 
-const Wrapper = tw.div`flex justify-center py-24 mx-auto`
+const Wrapper = tw.div`flex justify-center pt-24 mx-auto`
 const ContentWrapper = tw.div`flex flex-col flex-1 max-w-screen-2xl`
 const BlocsLayout = tw.div`flex flex-wrap flex-1`
 
@@ -22,11 +23,23 @@ const BannerTitle = tw.div`text-5xl font-semibold mb-6`
 const BannerSubTitle = tw.div`max-w-xs text-lg mb-4`
 
 
+const BusinessModelLeft = tw.div`flex w-5/12 justify-end`
+const BusinessModelRight = tw.div`flex w-7/12 justify-center`
+const BusinessModelTitleBlock = tw.div`flex flex-col justify-center items-center text-center text-lg`
+const BusinessModelUpperTitle = tw.div`text-8xl font-bold`
+//const BusinessModelTitle = tw.div`text-6xl font-semibold mb-6`
+const BusinessModelTitle = tw.div`text-textBlack text-6xl font-normal text-center mb-6`
+const BusinessModelSubTitle = tw.div`max-w-xs text-lg mb-4`
+
+const SalesMarketingTitleBlock = tw.div`flex flex-col justify-center items-center text-center text-lg`
+const SalesMarketingTitle = tw.div`text-6xl font-semibold mb-6`
+const SalesMarketingSubTitle = tw.div`text-lg mb-4`
+
 function Banner(){
     return(
         <FullBlock
             css={tw`
-                bg-black py-32 justify-end
+                bg-black py-32 justify-end mx-0
             `}
 
             style={{
@@ -48,12 +61,69 @@ function Banner(){
                 <BannerSubTitle>
                     {"We have more than 30 years of experience and already traded with many blablabla..."}
                 </BannerSubTitle>
-                <ButtonLink text={"Learn More"} url={"/"} color={"red"}/>
+                <ButtonLink text={"Learn more"} url={"/"} color={"red"}/>
             </BannerTitleBlock>
         </FullBlock>
     )
 }
 
+
+function BusinessModel(){
+    return(
+        <FullBlock css={tw`py-48`}>
+            <BusinessModelLeft>
+                <BusinessModelTitleBlock>
+                    <BusinessModelUpperTitle>
+                        {"You."}
+                    </BusinessModelUpperTitle>
+                    <BusinessModelTitle>
+                        {"Are Unique."}
+                    </BusinessModelTitle>
+                    <BusinessModelSubTitle>
+                        {"We will suit our approach to your needs."}
+                    </BusinessModelSubTitle>
+                    <ButtonLink text={"Learn more"} url={"business-models"} color={"blue"}/>
+                </BusinessModelTitleBlock>
+            </BusinessModelLeft>
+
+            <BusinessModelRight>
+
+            </BusinessModelRight>
+        </FullBlock>
+    )
+}
+
+function SalesMarketing(){
+    return(
+        <FullBlock
+            css={tw`justify-center text-white py-48`}
+            style={{
+                //height:"800px",
+                backgroundImage:`
+                    linear-gradient(
+                        rgba(0, 0, 0, 0.4), 
+                        rgba(0, 0, 0, 0.4)
+                    ),
+                    url(${SalesMarketingImg})
+                `,
+                backgroundRepeat:"no-repeat",
+                backgroundPositionX:"center",
+                backgroundPositionY:"center",
+                backgroundSize:"cover",
+            }}
+        >
+            <SalesMarketingTitleBlock>
+                <SalesMarketingTitle>
+                    {"Sales. Marketing."}
+                </SalesMarketingTitle>
+                <SalesMarketingSubTitle>
+                    {"Get the knowledge to take your business to the next level."}
+                </SalesMarketingSubTitle>
+                <ButtonLink text={"Learn more about our techniques"} url={"business-models"} color={"white"}/>
+            </SalesMarketingTitleBlock>
+        </FullBlock>
+    )
+}
 function HalfBloc({title, color, subtitle, url, img}){
 
     return(
@@ -88,37 +158,37 @@ export default function Blocs() {
                 <Banner/>
                 <BlocsLayout>
                     <HalfBloc
-                        title={"Start-up IP Company"}
+                        title={
+                            <div><SpanComponent paddingX={4} paddingY={4} text={"Estabished"} color={"#FAFF00"}/> IP Company.</div>
+                        }
+                        color={'blue'}
+                        subtitle={"Your company is operating for some years and you look for means or paths to grow/boost your business?"}
+                    />
+                    <HalfBloc
+                        title={"Start-Up."}
                         //span={''}
                         color={'blue'}
                         subtitle={
                             <div>
-                                You have a <SpanComponent padding={2} text={"bright idea"} color={"#00FF01"}/>, a promising technology, possibly first successes… and look for support to expand faster and deeper?
+                                You have a <SpanComponent paddingX={2} paddingY={2} text={"bright idea"} color={"#00FF01"}/>, a promising technology, possibly first successes… and look for support to expand faster and deeper?
                             </div>
                         }
-                    />
-                    <HalfBloc
-                        title={
-                            <div><SpanComponent padding={4} text={"Estabished"} color={"#FAFF00"}/> IP Company</div>
-                        }
-                        color={'red'}
-                        subtitle={"Your company is operating for some years and you look for means or paths to grow/boost your business?"}
                     />
                 </BlocsLayout>
                 <BlocsLayout>
                     <HalfBloc
-                        title={"Our values and skills"}
+                        title={<div>Values. <SpanComponent paddingX={4} paddingY={4} text={"Skills."} color={"#13FAEF"}/></div>}
                         subtitle={"We developped them through many years of working in the industry. There are important to us and are the bottom line of our work."}
-                        color={'red'}
+                        color={'blue'}
                     />
                     <HalfBloc
-                        title={"Our approach and business tools"}
-                        subtitle={""}
+                        title={"Approach and Business Tools."}
+                        subtitle={<div>We operate with <SpanComponent paddingX={2} paddingY={2} color={"#FFBF00"} text={"effective"}/> tools that we have created or that we leverage</div>}
                         color={'blue'}
                     />
                 </BlocsLayout>
-                <FullBlock>Our business models</FullBlock>
-                <FullBlock>Sales and Marketing techniques</FullBlock>
+                <BusinessModel/>
+                <SalesMarketing/>
             </ContentWrapper>
         </Wrapper>
     )

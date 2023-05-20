@@ -5,7 +5,7 @@ import Section from "./section";
 import {PageContentWrapper} from "../../layouts/wrappers";
 import Hero from "./hero";
 import YouAre from "./you-are";
-import {Button} from "../../layouts/components";
+import {Button, ButtonLink} from "../../layouts/components";
 import Footer from "../footer";
 import ContactBanner from "./contact-banner";
 import Blocs from "./blocs";
@@ -13,11 +13,15 @@ import Blocs from "./blocs";
 export default function MainPage() {
     return(
         <div>
-            <TopHeader text={"Espace pour display un texte ou pour renvoyer vers un lien intéressant"}/>
+            <TopHeader
+                text={"FlySemi made Forbes cover."}
+                //url={"https://www.morganphilips.com/fr-fra/conseils-et-actus/les-9-choses-a-faire-a-20-ans-pour-devenir-millionnaire-a-30-ans"}
+            />
             <Header/>
             <PageContentWrapper>
                 <Hero/>
                 <Blocs/>
+                {/*
                 <Section
                     title={"Boost your Business"}
                     text={"We believe that any innovation must be supported by real marketing and sales work carried out by passionate professionals who have the will to succeed, which in turn gives the product its best chance to find its way to success."}
@@ -52,6 +56,7 @@ export default function MainPage() {
 
                 />
                 <YouAre/>
+                */}
                 <ContactBanner/>
             </PageContentWrapper>
             <Footer/>
