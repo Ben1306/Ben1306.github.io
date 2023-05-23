@@ -15,7 +15,7 @@ export default function MainPage() {
         <div>
             <TopHeader
                 text={"FlySemi made Forbes cover."}
-                //url={"https://www.morganphilips.com/fr-fra/conseils-et-actus/les-9-choses-a-faire-a-20-ans-pour-devenir-millionnaire-a-30-ans"}
+                url={"https://www.morganphilips.com/fr-fra/conseils-et-actus/les-9-choses-a-faire-a-20-ans-pour-devenir-millionnaire-a-30-ans"}
             />
             <Header/>
             <PageContentWrapper>

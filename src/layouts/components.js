@@ -130,7 +130,13 @@ export function ButtonLink({color,text, url}){
 
                 onClick={()=>{
                     if(url){
-                        navigate('/' + url)
+                        if (url.substring(0,4) === "http"){
+
+                            window.open(url)
+                        }
+                        else {
+                            navigate('/' + url)
+                        }
                     }
                     else{
                         navigate('/')

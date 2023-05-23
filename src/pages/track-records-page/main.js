@@ -6,21 +6,27 @@ import Footer from "../footer";
 import ContactBanner from "../main-page/contact-banner";
 import {HeroSubTitle, HeroTitle} from "../../layouts/headings";
 import Records from "./records";
+import ScrollExperience from "./scroll-experience";
 
 
 export default function TrackRecords() {
     return(
         <div>
-            <TopHeader text={"Espace pour display un texte ou pour renvoyer vers un lien intéressant"}/>
             <Header/>
             <PageContentWrapper>
-                <HeroTitle tw="text-textBlack mt-24">
+                {/*<HeroTitle tw="text-textBlack mt-24">
                     Our track records
                 </HeroTitle>
                 <HeroSubTitle css={tw`max-w-screen-lg mx-auto mb-24`}>
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                 </HeroSubTitle>
-                <Records/>
+                */}
+                {/*<Records/>*/}
+                <ScrollExperience/>
+                <div>
+                    <h1>Bonsoir ceci est un test qui va s'avérer concluant</h1>
+                    <p>Je suis sur que tout le monde va adorer le rendu de cette page</p>
+                </div>
                 <ContactBanner/>
             </PageContentWrapper>
             <Footer/>

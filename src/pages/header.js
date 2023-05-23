@@ -25,7 +25,7 @@ const DropdownContent = tw.div`mt-4 p-2 rounded-md bg-white shadow-2xl`
 const DropdownList = tw.div`flex flex-col`
 const DropdownItem = tw.div`flex items-center cursor-pointer p-4 text-textBlack rounded-md hover:bg-textGrayBackground`
 const DropdownItemIcon = tw.div`flex justify-center items-center w-8 h-8 mr-4`
-const DropdownItemTitle = tw.div`flex-1`
+const DropdownItemTitle = tw.div`flex-1 text-lg font-normal text-left`
 
 const Contact = tw.div`flex mx-1 text-base font-normal cursor-pointer justify-center rounded-md items-center bg-primaryDark text-white`
 const ContactText = tw.div``
@@ -44,6 +44,51 @@ export function TopHeader({text, url}) {
         </TopHeaderContainer>
     )
 }
+
+const headerLinks = [
+    {
+        type:"link",
+        url:"/business-models",
+        label:"Business Models",
+    },
+    {
+        type:"group",
+        label:"You are",
+        nested:[
+            {
+                type:"link",
+                url:"/startup",
+                label:"Start-up IP company",
+            },
+            {
+                type:"link",
+                url:"/established-company",
+                label:"Established IP company",
+            },
+        ]
+    },
+    {
+        type:"group",
+        label:"Our expertise",
+        nested:[
+            {
+                type:"link",
+                url:"/values-and-skills",
+                label:"Values and skills",
+            },
+            {
+                type:"link",
+                url:"/approach-and-business-tools",
+                label:"Approach and business tools",
+            },
+            {
+                type:"link",
+                url:"/track-records",
+                label:"Our track records",
+            },
+        ]
+    },
+]
 
 export default function Header() {
 
@@ -107,177 +152,81 @@ export default function Header() {
                     FlySemi
                 </HeaderLogo>
                 <HeaderLinks>
-                    <Link
-                        onClick={
-                            ()=> {navigate('/business-models')}
-                        }
-                    >
-                        Business models
-                    </Link>
-                    <DropdownLink className="group">
-                        <motion.div
-                            initial="rest"
-                            whileHover="hover"
-                            animate="rest"
-                        >
-                            <DropdownButton>
-                                <DropdownText>
-                                    You are
-                                </DropdownText>
-                                <motion.div
-                                    style={{
-                                        width:"16px",
-                                        height:"16px",
-                                        display:'flex',
-                                        justifyContent:'center',
-                                        justifyItems:'center'
-                                    }}
-                                    variants={arrowRotation}
+                    {headerLinks.map((obj,index)=>{
+                        if(obj.type === "link"){
+                            return(
+                                <Link
+                                    key={obj.label + index.toString()}
+                                    onClick={
+                                        ()=> {navigate(obj.url)}
+                                    }
                                 >
-                                        <ChevronDownIcon/>
-                                </motion.div>
-                            </DropdownButton>
-                            <DropdownSubMenuWrapper>
-                                <DropdownContent>
-                                    <DropdownList>
-                                        <DropdownItem
-                                            onClick={
-                                                ()=> {
-                                                    navigate('/startup')
-                                                }
-                                            }
-                                        >
-                                            <DropdownItemIcon
-                                            style={{borderRadius:"50%"}}
-                                            css={tw`bg-primaryLight text-primaryDark`}
-                                            >
-                                                <IconComponentContainer css={tw`w-4 h-4`}>
-                                                    <BeakerIcon/>
-                                                </IconComponentContainer>
-                                            </DropdownItemIcon>
-                                            <DropdownItemTitle>
-                                                Startup IP Company
-                                            </DropdownItemTitle>
-                                        </DropdownItem>
-                                        <DropdownItem
-                                            onClick={
-                                                ()=> {
-                                                    navigate('/established-company')
-                                                }
-                                            }
-                                        >
-                                            <DropdownItemIcon
-                                                style={{borderRadius:"50%"}}
-                                                css={tw`bg-secondaryLight text-secondaryDark`}
-                                            >
-                                                <IconComponentContainer css={tw`w-4 h-4`}>
-                                                    <BuildingOffice2Icon/>
-                                                </IconComponentContainer>
-                                            </DropdownItemIcon>
-                                            <DropdownItemTitle>
-                                                Established IP company
-                                            </DropdownItemTitle>
-                                        </DropdownItem>
-                                    </DropdownList>
-                                </DropdownContent>
-                            </DropdownSubMenuWrapper>
-                        </motion.div>
-                    </DropdownLink>
-                    <Link
-                        onClick={
-                            ()=> {navigate('/track-records')}
+                                    {obj.label}
+                                </Link>
+                            )
                         }
-                    >
-                        Track records
-                    </Link>
-                    <DropdownLink className="group">
-                        <motion.div
-                            initial="rest"
-                            whileHover="hover"
-                            animate="rest"
-                        >
-                            <DropdownButton>
-                                <DropdownText>
-                                    Our expertise
-                                </DropdownText>
-                                <motion.div
-                                    style={{
-                                        width:"16px",
-                                        height:"16px",
-                                        display:'flex',
-                                        justifyContent:'center',
-                                        justifyItems:'center'
-                                    }}
-                                    variants={arrowRotation}
-                                >
-                                    <ChevronDownIcon/>
-                                </motion.div>
-                            </DropdownButton>
-                            <DropdownSubMenuWrapper>
-                                <DropdownContent>
-                                    <DropdownList>
-                                        <DropdownItem
-                                            onClick={
-                                                ()=> {
-                                                    navigate('/discover-us')
-                                                }
-                                            }
-                                        >
-                                            <DropdownItemIcon
-                                                style={{borderRadius:"50%"}}
-                                                css={tw`bg-primaryLight text-primaryDark`}
+                        else{
+                            return(
+                                <DropdownLink className="group" key={obj.label + index.toString()}>
+                                    <motion.div
+                                        initial="rest"
+                                        whileHover="hover"
+                                        animate="rest"
+                                    >
+                                        <DropdownButton>
+                                            <DropdownText>
+                                                {obj.label}
+                                            </DropdownText>
+                                            <motion.div
+                                                style={{
+                                                    width:"16px",
+                                                    height:"16px",
+                                                    display:'flex',
+                                                    justifyContent:'center',
+                                                    justifyItems:'center'
+                                                }}
+                                                variants={arrowRotation}
                                             >
-                                                <IconComponentContainer css={tw`w-4 h-4`}>
-                                                    <BeakerIcon/>
-                                                </IconComponentContainer>
-                                            </DropdownItemIcon>
-                                            <DropdownItemTitle>
-                                                Our values and skills
-                                            </DropdownItemTitle>
-                                        </DropdownItem>
-                                        <DropdownItem
-                                            onClick={
-                                                ()=> {
-                                                    navigate('/discover-us')
-                                                }
-                                            }
-                                        >
-                                            <DropdownItemIcon
-                                                style={{borderRadius:"50%"}}
-                                                css={tw`bg-secondaryLight text-secondaryDark`}
-                                            >
-                                                <IconComponentContainer css={tw`w-4 h-4`}>
-                                                    <BuildingOffice2Icon/>
-                                                </IconComponentContainer>
-                                            </DropdownItemIcon>
-                                            <DropdownItemTitle>
-                                                Our approach and business tools
-                                            </DropdownItemTitle>
-                                        </DropdownItem>
-                                        <DropdownItem
-                                            onClick={
-                                                ()=> {
-                                                    navigate('/discover-us')
-                                                }
-                                            }
-                                        >
-                                            <DropdownItemIcon
-                                                style={{borderRadius:"50%"}}
-                                                css={tw`bg-secondaryLight text-secondaryDark`}
-                                            >
-                                                <IconComponentContainer css={tw`w-4 h-4`}>
-                                                    <BuildingOffice2Icon/>
-                                                </IconComponentContainer>
-                                            </DropdownItemIcon>
-                                            <DropdownItemTitle>
-                                                Our track records
-                                            </DropdownItemTitle>
-                                        </DropdownItem>
-                                    </DropdownList>
-                                </DropdownContent>
-                            </DropdownSubMenuWrapper>
-                        </motion.div>
-                    </DropdownLink>
+                                                <ChevronDownIcon/>
+                                            </motion.div>
+                                        </DropdownButton>
+                                        <DropdownSubMenuWrapper>
+                                            <DropdownContent>
+                                                <DropdownList>
+                                                    {obj.nested.map((nestedObj,index)=>{
+                                                        return(
+                                                            <DropdownItem
+                                                                key={obj.label + index.toString()}
+                                                                onClick={
+                                                                    ()=> {
+                                                                        navigate(nestedObj.url)
+                                                                    }
+                                                                }
+                                                            >
+                                                                {/*
+                                                                <DropdownItemIcon
+                                                                    style={{borderRadius:"50%"}}
+                                                                    css={tw`bg-primaryLight text-primaryDark`}
+                                                                >
+                                                                    <IconComponentContainer css={tw`w-4 h-4`}>
+                                                                        <BeakerIcon/>
+                                                                    </IconComponentContainer>
+                                                                </DropdownItemIcon>
+                                                                */}
+                                                                <DropdownItemTitle>
+                                                                    {nestedObj.label}
+                                                                </DropdownItemTitle>
+                                                            </DropdownItem>
+                                                        )
+                                                    })}
+                                                </DropdownList>
+                                            </DropdownContent>
+                                        </DropdownSubMenuWrapper>
+                                    </motion.div>
+                                </DropdownLink>
+                            )
+                        }
+                    })}
                     <Contact
                         onClick={
                             ()=> {navigate('/contact-us')}
