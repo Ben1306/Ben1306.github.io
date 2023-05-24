@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1f08d47b.css",
-    "main.js": "/static/js/main.6653ca74.js",
+    "main.js": "/static/js/main.272b709c.js",
     "static/media/sales-and-marketing.jpg": "/static/media/sales-and-marketing.db8058e39588abde04d9.jpg",
     "static/media/papillon.png": "/static/media/papillon.fb09c8df05fc5106d7f4.png",
     "static/media/tunnel-zoom0139.jpg": "/static/media/tunnel-zoom0139.c28b4f3b8d2b6b40647e.jpg",
@@ -307,10 +307,10 @@
     "static/media/404-not-found.jpg": "/static/media/404-not-found.38da77fa310c806b1db8.jpg",
     "index.html": "/index.html",
     "main.1f08d47b.css.map": "/static/css/main.1f08d47b.css.map",
-    "main.6653ca74.js.map": "/static/js/main.6653ca74.js.map"
+    "main.272b709c.js.map": "/static/js/main.272b709c.js.map"
   },
   "entrypoints": [
     "static/css/main.1f08d47b.css",
-    "static/js/main.6653ca74.js"
+    "static/js/main.272b709c.js"
   ]
 }
