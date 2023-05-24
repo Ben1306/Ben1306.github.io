@@ -55,17 +55,80 @@ function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
     ctx.drawImage(img, cx, cy, cw, ch,  x, y, w, h);
 }
 
+// Function to check target element's position
+let checkTargetPosition = (element) => {
+    // get bounding client rect from element
+    let rect = element.getBoundingClientRect();
+    // grab measurements and percentage conversion
+    let fromTop = rect.top;
+    let fraction = rect.top/window.innerHeight;
+    let percentage = fraction * 100;
+    //console.log('target scroll:', fromTop, 'px from top.', fraction, '/', percentage, '%');
+    return {fromTop:fromTop,fraction:fraction,percentage:percentage}
+}
 
 function getCurrentFrame(index) {
     return require(`../../images/img_tunnel_seq/tunnel-zoom${index.toString().padStart(4, '0')}.jpg`)
 }
 
+
+const Text = tw.div`relative sticky inset-y-1/2 w-full text-center text-white text-6xl font-semibold`
+
+
+function TextScroll({text, height, last=false}){
+
+    const [opacity, setOpacity] = useState(0)
+    const textRef = useRef(null)
+
+    function handleFade(){
+        //console.log(textRef.current.scrollTop)
+        const fractionOfScreen = checkTargetPosition(textRef.current).fraction;
+        if(fractionOfScreen>0.5 || fractionOfScreen<0.5){
+            setOpacity(0)
+        }
+        else if(fractionOfScreen === 0.5){
+            setOpacity(100)
+        }
+        //console.log(fractionOfScreen)
+    }
+
+    useEffect(()=>{
+        window.addEventListener('scroll',handleFade);
+
+        return () => {
+            window.removeEventListener('scroll', handleFade);
+        }
+    },[])
+
+    return(
+        <div
+            style={{
+                height:height,
+            }}
+        >
+            <Text
+                style={{
+                    opacity:`${opacity}%`,
+                    transform:"translate(0% -50%)",
+                    zIndex:10
+                }}
+                ref={textRef}
+            >
+                {text}
+            </Text>
+        </div>
+    )
+}
+
+
 const ImageCanvas = ({ scrollHeight, numFrames, width, height }) => {
 
     const canvasRef = useRef(null);
+    const containerRef = useRef(null)
     const [images, setImages] = useState([]);
     const [frameIndex, setFrameIndex] = useState(0);
-
+    const [elemWidth, setElemWidth] = useState(100);
+    const [radius, setRadius] = useState(0);
     function preloadImages() {
         for (let i = 0; i < numFrames; i++) {
             const img = new Image();
@@ -74,7 +137,7 @@ const ImageCanvas = ({ scrollHeight, numFrames, width, height }) => {
         }
     }
     const handleScroll = () => {
-        const scrollFraction = window.scrollY / (scrollHeight - window.innerHeight);
+        const scrollFraction = window.scrollY / (scrollHeight);
         const index = Math.min(
             numFrames - 2,
             Math.ceil(scrollFraction * numFrames)
@@ -121,17 +184,60 @@ const ImageCanvas = ({ scrollHeight, numFrames, width, height }) => {
         return () => cancelAnimationFrame(requestId);
     }, [frameIndex, images,width, height]);
 
+    function resizeElement(){
+
+        const position = checkTargetPosition(containerRef.current);
+        const fromTop = Math.abs(position.fromTop);
+        const offSet = window.innerHeight/2;
+        if(fromTop > scrollHeight - window.innerHeight && fromTop < scrollHeight - offSet ){
+            setElemWidth(
+                100 - 20* (fromTop - scrollHeight + window.innerHeight)/offSet
+            )
+            setRadius(
+                (fromTop - scrollHeight + window.innerHeight)/offSet
+            )
+        }
+        else if(fromTop >= scrollHeight - offSet){
+            setElemWidth(80)
+            setRadius(1)
+        }
+        else{
+            setElemWidth(100)
+            setRadius(0)
+        }
+    }
+
+    useEffect(()=>{
+        // Listen for scroll event and check position
+        window.addEventListener('scroll', resizeElement);
+        return () => {
+            window.removeEventListener("scroll", resizeElement);
+        }
+    },[])
+
+
     return (
         <div
-            style={{ height: scrollHeight }}
+            css={tw`flex flex-col items-center overflow-clip mx-16`}
+            style={{
+                height: scrollHeight.toString() + "px",
+                width: `${elemWidth}%`,
+                borderRadius:`${radius}rem`,
+            }}
+            ref={containerRef}
         >
             <canvas
                 ref={canvasRef}
                 style={{
-                    position:"fixed",
-                    zIndex:10,
+                    position:"sticky",
+                    top:"50px",
+                    zIndex:1,
                 }}
             />
+            <TextScroll height={500} text={"Maquette possible pour cette partie."}/>
+            <TextScroll height={1000} text={"Il faut trouver une séquence de fond sympa et cohérente avec le business"}/>
+            <TextScroll height={500} text={"Il faut que j'améliore l'apparition de ces titres."}/>
+            <TextScroll height={1000} text={"Et ça sera désactivé sur téléphone"}/>
         </div>
     );
 };
@@ -146,6 +252,7 @@ export default function ScrollExperience() {
         setHeight(window.innerHeight);
     }
 
+
     useEffect(() => {
         window.addEventListener("resize", handleResize);
         return () => {
@@ -154,9 +261,8 @@ export default function ScrollExperience() {
     }, []);
 
     return(
-        <Container css={tw`w-full overflow-hidden`}>
+        <Container css={tw`flex flex-col w-full items-center`}>
             <ImageCanvas
-                css={tw`sticky inset-y-0`}
                 scrollHeight={4000}
                 width={width}
                 height={height}

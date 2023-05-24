@@ -21,7 +21,8 @@ module.exports = {
             textBlack: "#040F0F",           //Apple text black
 
             blocGrayBG: "#FAFAFA",
-
+            recordsBG: "#EBEBEC",
+            headerBG:"#161617",
 
             white:'#fff',
             bgWhite: "#fbfbfd",             //Apple false white

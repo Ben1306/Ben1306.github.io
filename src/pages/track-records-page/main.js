@@ -7,13 +7,14 @@ import ContactBanner from "../main-page/contact-banner";
 import {HeroSubTitle, HeroTitle} from "../../layouts/headings";
 import Records from "./records";
 import ScrollExperience from "./scroll-experience";
+import BlockTranslations from "./block-translations";
 
 
 export default function TrackRecords() {
     return(
         <div>
-            <Header/>
-            <PageContentWrapper>
+            <Header transparent={false}/>
+            <PageContentWrapper css={tw`bg-recordsBG`}>
                 {/*<HeroTitle tw="text-textBlack mt-24">
                     Our track records
                 </HeroTitle>
@@ -23,6 +24,7 @@ export default function TrackRecords() {
                 */}
                 {/*<Records/>*/}
                 <ScrollExperience/>
+                <BlockTranslations/>
                 <div>
                     <h1>Bonsoir ceci est un test qui va s'avérer concluant</h1>
                     <p>Je suis sur que tout le monde va adorer le rendu de cette page</p>
