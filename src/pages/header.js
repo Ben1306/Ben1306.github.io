@@ -10,7 +10,7 @@ import {Bars3BottomRightIcon, XMarkIcon} from "@heroicons/react/24/solid";
 
 const TopHeaderContainer = tw.div`hidden md:flex flex-row justify-center py-2 font-normal text-center w-full text-sm bg-primaryLight text-primaryDark`
 
-const HeaderStickyWrapper = tw.div`flex sticky top-0 z-80 font-bold text-3xl bg-transparent h-16 transition duration-300 border-solid border-b-bgWhite border-x-0 border-t-0`
+const HeaderStickyWrapper = tw.div`flex sticky top-0 z-80 font-bold text-3xl bg-transparent h-16 transition duration-300 border-solid border-b-white border-x-0 border-t-0`
 const HeaderContainer = tw.div`flex items-center max-w-screen-xl mx-auto w-full px-4 2xl:px-0`
 const HeaderLogo = tw.div`cursor-pointer flex items-center font-semibold text-xl hover:text-primaryDark transition duration-300`
 const LogoContainer = tw.div`w-8 h-8 flex justify-center items-center bg-secondaryDark mr-4`

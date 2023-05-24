@@ -72,24 +72,36 @@ function getCurrentFrame(index) {
 }
 
 
-const Text = tw.div`relative sticky inset-y-1/2 w-full text-center text-white text-6xl font-semibold`
+const Text = tw.div`fixed w-full text-center text-white text-6xl font-semibold`
 
-
-function TextScroll({text, height, last=false}){
+function TextScroll({text, height, offset, transition}){
 
     const [opacity, setOpacity] = useState(0)
+    const [display, setDisplay] = useState(false)
     const textRef = useRef(null)
+    const innerContainerRef = useRef(null)
 
     function handleFade(){
-        //console.log(textRef.current.scrollTop)
-        const fractionOfScreen = checkTargetPosition(textRef.current).fraction;
-        if(fractionOfScreen>0.5 || fractionOfScreen<0.5){
-            setOpacity(0)
+
+        const fraction = checkTargetPosition(innerContainerRef.current).fromTop;
+        //console.log(fraction)
+        const middle = window.innerHeight/2;
+        if(fraction <= middle && fraction > middle - transition){
+            setOpacity(100 * Math.abs((fraction - middle) / transition))
+            setDisplay(true)
         }
-        else if(fractionOfScreen === 0.5){
+        else if(fraction <= middle - transition && fraction > middle - transition - (height- 2*transition)){
             setOpacity(100)
+            setDisplay(true)
         }
-        //console.log(fractionOfScreen)
+        else if(fraction <= middle - transition - (height - 2*transition) && fraction > middle - (2*transition) - (height - 2*transition)){
+            setOpacity(100 * (1 + ((fraction - middle - transition + height ) / transition) ))
+            setDisplay(true)
+        }
+        else{
+            setOpacity(0)
+            setDisplay(false)
+        }
     }
 
     useEffect(()=>{
@@ -101,22 +113,36 @@ function TextScroll({text, height, last=false}){
     },[])
 
     return(
-        <div
-            style={{
-                height:height,
-            }}
-        >
-            <Text
+        <>
+            <div
+                ref={innerContainerRef}
                 style={{
-                    opacity:`${opacity}%`,
-                    transform:"translate(0% -50%)",
-                    zIndex:10
+                    height:height,
+                    zIndex:5
                 }}
-                ref={textRef}
             >
-                {text}
-            </Text>
-        </div>
+                <Text
+                    css={display ? tw`fixed` : tw`hidden`}
+                    style={{
+                        opacity:`${opacity}%`,
+                        transform:"translate(-50%, -50%)",
+                        zIndex:10,
+                        top: `calc(50% + 2rem)`,
+                        left:"50%",
+                    }}
+                    ref={textRef}
+                >
+                    {text}
+                </Text>
+            </div>
+            <div
+                style={{
+                    zIndex:15,
+                    width:"300px",
+                    height:offset,
+                }}
+            />
+        </>
     )
 }
 
@@ -234,10 +260,9 @@ const ImageCanvas = ({ scrollHeight, numFrames, width, height }) => {
                     zIndex:1,
                 }}
             />
-            <TextScroll height={500} text={"Maquette possible pour cette partie."}/>
-            <TextScroll height={1000} text={"Il faut trouver une séquence de fond sympa et cohérente avec le business"}/>
-            <TextScroll height={500} text={"Il faut que j'améliore l'apparition de ces titres."}/>
-            <TextScroll height={1000} text={"Et ça sera désactivé sur téléphone"}/>
+            <TextScroll height={2500} transition={500} offset={1000} text={"Maquette possible pour cette partie."}/>
+            <TextScroll height={2500} transition={500} offset={1000} text={"Il faut trouver une séquence de fond sympa et cohérente avec le business"}/>
+            <TextScroll height={1500} transition={500} offset={500} text={"L'apparition des titres est très smooth."}/>
         </div>
     );
 };
@@ -263,7 +288,7 @@ export default function ScrollExperience() {
     return(
         <Container css={tw`flex flex-col w-full items-center`}>
             <ImageCanvas
-                scrollHeight={4000}
+                scrollHeight={10000}
                 width={width}
                 height={height}
                 numFrames={299}
