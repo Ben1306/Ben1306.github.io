@@ -3,7 +3,7 @@ import tw from 'twin.macro'
 import {useEffect, useRef, useState} from "react";
 
 const Wrapper = tw.div`w-full flex justify-center mt-3`
-const Container = tw.div`flex flex-col items-center`
+const Container = tw.div`flex flex-col items-center mb-20`
 
 const Row = tw.div`flex w-full my-3`
 const Block = tw.div`flex flex-col bg-white items-center justify-center rounded-2xl h-96`

@@ -25,10 +25,6 @@ export default function TrackRecords() {
                 {/*<Records/>*/}
                 <ScrollExperience/>
                 <BlockTranslations/>
-                <div>
-                    <h1>Bonsoir ceci est un test qui va s'avérer concluant</h1>
-                    <p>Je suis sur que tout le monde va adorer le rendu de cette page</p>
-                </div>
                 <ContactBanner/>
             </PageContentWrapper>
             <Footer/>

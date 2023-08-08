@@ -89,7 +89,7 @@ export const Button = ({color, text, reverse, url}) => {
                     }}
                     variants={buttonArrow}
                 >
-                    <ArrowRightIcon/>
+                    <ArrowRightIcon css={tw`w-12`}/>
                 </motion.div>
             </motion.div>
         </ContactButton>
@@ -151,10 +151,8 @@ export function ButtonLink({color,text, url}){
                     color === 'red' && tw`text-secondaryDark`,
                     color === 'white' && tw`text-white`,
                 ]}
-
-                tw="h-4 w-4"
             >
-                <ChevronRightIcon/>
+                <ChevronRightIcon tw="h-4 w-4"/>
             </IconComponentContainer>
         </Container>
     )

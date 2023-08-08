@@ -97,10 +97,18 @@ const mobileMenuVariants = {
     closed:{
         height:0,
         //display:"none",
+        transition:{
+            duration:0.5,
+            type:'easeIn'
+        }
     },
     open:{
         height:"auto",
         //display:"flex",
+        transition:{
+            duration:0.5,
+            type:'easeIn'
+        }
     }
 }
 
@@ -293,7 +301,7 @@ export default function Header({transparent=true}) {
                         css={[
                             openMobileLinks ? tw`block` : tw`hidden`,
                             tw`
-                            md:hidden z-1 fixed inset-0
+                            block md:hidden z-1 fixed inset-0
                             text-textBlack bg-headerBG select-none
                             `
                         ]}
@@ -320,7 +328,7 @@ const MobileLink = tw.div`flex w-full cursor-pointer text-3xl font-normal mb-4`
 const MobileDropdownLinkText = tw.div`flex-1 text-3xl font-normal`
 
 const mobileArrowRotation = {
-    closed: { rotate:0},
+    folded: { rotate:0},
     deployed: {
         rotate:90,
         transition: {
@@ -332,7 +340,7 @@ const mobileArrowRotation = {
 };
 
 const mobileSubLinkContainerVariants = {
-    closed: {
+    folded: {
         display:"none",
         opacity:"0%",
         height:0,
@@ -365,6 +373,14 @@ const mobileSubLinkContainerVariants = {
     }
 }
 
+const linkVariant = {
+    open:{
+        opacity:0,
+    },
+    closed:{
+        opacity:1,
+    }
+}
 
 
 function MobileDropdownLinks({open, selected, setSelected, links}){
@@ -380,61 +396,76 @@ function MobileDropdownLinks({open, selected, setSelected, links}){
     }
 
     const navigate = useNavigate();
+
+    let delay = 0.2;
     return(
         <AnimatePresence>
             {open &&
                 <motion.div
                     css={tw`mt-24 flex flex-col items-start pl-8 pr-4 text-white`}
-                    initial={{ opacity: 0, transform:"translateX(-50px)" }}
-                    animate={{ opacity: 1, transform:"translateX(0px)" }}
-                    transition={{ ease: "easeOut", delay:0.2 }}
-                    exit={{ opacity: 0, transition:{delay:0} }}
+                    //initial={{ opacity: 0, transform:"translateX(-50px)" }}
+                    //animate={{ opacity: 1, transform:"translateX(0px)" }}
+                    //transition={{ ease: "easeOut", delay:0.2 }}
+                    //exit={{ opacity: 0, transition:{delay:0} }}
                 >
                     {links.map((obj,index)=>{
+                        delay = delay + 0.1;
                         if(obj.type === "link"){
                             return(
-                                <MobileLink
+                                <motion.div
+                                    css={tw`select-none flex w-full md:cursor-pointer text-3xl font-normal mb-4`}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ ease: "easeOut", delay:delay, duration:1 }}
+                                    exit={{ opacity: 0, transition:{delay:0} }}
                                     key={obj.label + index.toString()}
                                     onClick={
                                         ()=> {navigate(obj.url)}
                                     }
                                 >
                                     {obj.label}
-                                </MobileLink>
+                                </motion.div>
                             )
                         }
                         else{
                             return(
                                 <div css={tw`flex w-full flex-col`}>
                                     <motion.div
-                                        css={tw`flex flex-1 cursor-pointer mb-4`}
+                                        css={tw`flex flex-1 md:cursor-pointer mb-4`}
+                                        initial={["folded", "open"]}
+                                        animate={[selected === obj ? "deployed" : "folded", "closed"]}
+                                        variants={linkVariant}
+                                        transition={{ ease: "easeOut", delay:delay, duration:1 }}
+                                        exit={{ opacity: 0, transition:{delay:0} }}
                                         key={obj.label + index.toString()}
-                                        initial="closed"
-                                        animate={selected === obj ? "deployed" : "closed"}
+                                        //initial="closed"
+                                        //animate={selected === obj ? "deployed" : "folded"}
                                         onClick={()=>{toggleSelect(obj)}}
                                     >
                                         <MobileDropdownLinkText>
                                             {obj.label}
                                         </MobileDropdownLinkText>
+                                        {/*
                                         <motion.div
                                             css={tw`flex justify-center items-center w-8 h-8 text-white`}
                                             variants={mobileArrowRotation}
                                         >
                                             <ChevronRightIcon/>
                                         </motion.div>
+                                        */}
                                     </motion.div>
                                     <motion.div
                                         css={tw`flex flex-col justify-center pl-8 text-left`}
-                                        //initial="closed"
-                                        //animate={selected === obj ? "deployed" : "closed"}
+                                        //initial="folded"
+                                        //animate={selected === obj ? "deployed" : "folded"}
                                         //variants={mobileSubLinkContainerVariants}
                                     >
                                         {obj.nested.map((nestedObj,index)=>{
                                             return(
                                                 <motion.div
-                                                    css={tw`cursor-pointer text-white text-xl font-normal mb-2`}
-                                                    initial="closed"
-                                                    animate={selected === obj ? "deployed" : "closed"}
+                                                    css={tw`md:cursor-pointer text-white text-xl font-normal mb-2`}
+                                                    initial="folded"
+                                                    animate={selected === obj ? "deployed" : "folded"}
                                                     variants={mobileSubLinkContainerVariants}
                                                     onClick={
                                                         ()=> {navigate(nestedObj.url)}
@@ -449,15 +480,19 @@ function MobileDropdownLinks({open, selected, setSelected, links}){
                             )
                         }
                     })}
-                    <MobileLink
-                        css={tw`text-secondaryDark`}
+                    <motion.div
+                        css={tw`flex w-full md:cursor-pointer text-3xl font-normal mb-4 text-secondaryDark`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ ease: "easeOut", delay:delay, duration:1 }}
+                        exit={{ opacity: 0, transition:{delay:0} }}
                         key={"Contact"}
                         onClick={
                             ()=> {navigate("/contact-us")}
                         }
                     >
                         Contact us
-                    </MobileLink>
+                    </motion.div>
                 </motion.div>
             }
 

@@ -4,7 +4,7 @@ import {SectionTitle} from "../../layouts/headings";
 import {motion} from "framer-motion"
 
 const Wrapper = tw.div`flex justify-center mx-auto`
-const SectionWrapper = tw.div`flex justify-center py-24 my-12 w-full`
+const SectionWrapper = tw.div`flex bg-yellow justify-center py-12 my-12 w-full`
 const ContentWrapper = tw.div`flex flex-1 max-w-screen-lg`
 
 const LeftColumn = tw.div`flex flex-col w-4/12`
@@ -22,8 +22,7 @@ const TextContainer = tw.div`text-textGrayMedium text-lg font-normal text-left m
 export default function Our({text, title, orientation, list}) {
     return(
         <Wrapper>
-            <SectionWrapper
-            >
+            <SectionWrapper>
                 <ContentWrapper>
                     {orientation === 'left' &&
                         <LeftColumn>

@@ -4,7 +4,7 @@ import Header, {TopHeader} from "../header";
 import {PageContentWrapper} from "../../layouts/wrappers";
 import Footer from "../footer";
 import ContactBanner from "../main-page/contact-banner";
-import {HeroSubTitle, HeroTitle} from "../../layouts/headings";
+import {HeroSubTitle, HeroTitle, SectionSubtitle, SectionTitle} from "../../layouts/headings";
 import Our from "../approach-business-tools-page/our";
 
 const values = [
@@ -87,12 +87,12 @@ export default function ValuesAndSkillsPage() {
             <TopHeader text={"Espace pour display un texte ou pour renvoyer vers un lien intéressant"}/>
             <Header/>
             <PageContentWrapper>
-                <HeroTitle tw="text-textBlack mt-24">
-                    Our values and skills
-                </HeroTitle>
-                <HeroSubTitle css={tw`max-w-screen-lg mx-auto mb-24`}>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                </HeroSubTitle>
+                <SectionTitle tw="text-textBlack mt-24">
+                    We Value. our Skills
+                </SectionTitle>
+                <SectionSubtitle css={tw`mx-auto text-center`}>
+                    Because our values are the major driver when we accomplish a job.
+                </SectionSubtitle>
                 <Our
                     title={"Our key values"}
                     text={"There are important to us and are the bottom line of our work"}
